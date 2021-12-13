@@ -1,6 +1,6 @@
-# meditabk
+# GoodWishes
 
-A new Flutter project.
+Goodwishes Project App.
 
 ## Getting Started
 
