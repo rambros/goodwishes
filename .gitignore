@@ -1,0 +1,11 @@
+/.dart_tool
+/.flutter-plugins
+/.flutter-plugins-dependencies
+/.git
+/.idea
+/.metadata
+/.packages
+/.slidy
+/.vscode
+/firebase-debug.log
+/build

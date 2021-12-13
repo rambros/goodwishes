@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "875067654858",
+    "project_id": "good-wishes-project",
+    "storage_bucket": "good-wishes-project.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:875067654858:android:ef36a143c3875b9fe9aa33",
+        "android_client_info": {
+          "package_name": "app.brahmakumaris.goodwishes"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "875067654858-33f5239btrqtclbn6jjl9lbmgp7uaj4s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBRw_qK7H3tQgpS6L2Qe0h6fqnscdzJNXQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "875067654858-33f5239btrqtclbn6jjl9lbmgp7uaj4s.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "875067654858-ff3on0mip8bki1icir4ghgqb1niop2h4.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "app.brahmakumaris.goodwishes",
+                "app_store_id": "1524154748"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
