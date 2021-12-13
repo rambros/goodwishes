@@ -27,7 +27,7 @@ class _ConfigPageState extends ModularState<ConfigPage, AccountController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar:  AppBar(
-        title: const Text('Configurações do App'),
+        title: const Text('App Settings'),
       ),
                //HomeAppBar(context: context, title: 'Configurações'),
       body: controller.busy
@@ -37,7 +37,7 @@ class _ConfigPageState extends ModularState<ConfigPage, AccountController> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    Text('Aguarde enquanto os arquivos são salvos'),
+                    Text('Please wait while files are being processed'),
                     verticalSpace(16),
                     CircularProgressIndicator(),
                   ],
@@ -73,7 +73,7 @@ class _ConfigPageState extends ModularState<ConfigPage, AccountController> {
                           //_showUserPicture(),
                           //verticalSpace(10),
                           Text(
-                            _userService.currentUser!.fullName ?? 'Usuario',
+                            _userService.currentUser!.fullName ?? 'User',
                             style: TextStyle(
                               fontWeight: FontWeight.w500,
                               fontSize: 24,
@@ -117,7 +117,7 @@ class _ConfigPageState extends ModularState<ConfigPage, AccountController> {
                             color: Theme.of(context).colorScheme.secondary),
                         trailing: Icon(Icons.navigate_next,
                             color: Theme.of(context).colorScheme.secondary, size: 28),
-                        title: Text('Editar seu Perfil'),
+                        title: Text('Edit your profile'),
                         onTap: () {
                           Modular.to.pushNamed('/account');
                         }),
@@ -128,7 +128,7 @@ class _ConfigPageState extends ModularState<ConfigPage, AccountController> {
                           color: Theme.of(context).colorScheme.secondary),
                       trailing: Icon(Icons.navigate_next,
                           color: Theme.of(context).colorScheme.secondary, size: 28),
-                      title: Text('Convide seus amigos'),
+                      title: Text('Invite your friends'),
                       onTap: () {
                         Modular.to.pushNamed('/invite');
                       }),
@@ -137,7 +137,7 @@ class _ConfigPageState extends ModularState<ConfigPage, AccountController> {
                           color: Theme.of(context).colorScheme.secondary),
                       trailing: Icon(Icons.navigate_next,
                           color: Theme.of(context).colorScheme.secondary, size: 28),
-                      title: Text('Avalie o MeditaBK'),
+                      title: Text('Evaluate GoodWishes App'),
                       onTap: () {
                         Modular.to.pushNamed('/avaliar');
                       }),    
@@ -157,7 +157,7 @@ class _ConfigPageState extends ModularState<ConfigPage, AccountController> {
                               color: Theme.of(context).colorScheme.secondary),
                           trailing: Icon(Icons.navigate_next,
                               color: Theme.of(context).colorScheme.secondary, size: 28),
-                          title: Text('Gestão de Categorias'),
+                          title: Text('Category manager'),
                           onTap: () {
                             Modular.to.pushNamed('/category/list');
                           })
@@ -167,7 +167,7 @@ class _ConfigPageState extends ModularState<ConfigPage, AccountController> {
                           color: Theme.of(context).colorScheme.secondary),
                       trailing: Icon(Icons.navigate_next,
                           color: Theme.of(context).colorScheme.secondary, size: 28),
-                      title: Text('Configurações'),
+                      title: Text('Settings'),
                       onTap: () {
                         Modular.to.pushNamed('/settings');
                       }),
@@ -176,7 +176,7 @@ class _ConfigPageState extends ModularState<ConfigPage, AccountController> {
                           color: Theme.of(context).colorScheme.secondary),
                       trailing: Icon(Icons.navigate_next,
                           color: Theme.of(context).colorScheme.secondary, size: 28),
-                      title: Text('Sobre os autores das meditações'),
+                      title: Text('About authors of content'),
                       onTap: () {
                         //Navigator.pop(context);
                         Modular.to.pushNamed('/author/list');
@@ -186,7 +186,7 @@ class _ConfigPageState extends ModularState<ConfigPage, AccountController> {
                           color: Theme.of(context).colorScheme.secondary),
                       trailing: Icon(Icons.navigate_next,
                           color: Theme.of(context).colorScheme.secondary, size: 28),
-                      title: Text('Sobre a Brahma Kumaris'),
+                      title: Text('About Brahma Kumaris'),
                       onTap: () {
                         //Navigator.pop(context);
                         Modular.to.pushNamed('/about');
@@ -196,7 +196,7 @@ class _ConfigPageState extends ModularState<ConfigPage, AccountController> {
                         color: Theme.of(context).colorScheme.secondary),
                     trailing: Icon(Icons.navigate_next,
                         color: Theme.of(context).colorScheme.secondary, size: 28),
-                    title: Text('Deletar conta e dados do app'),
+                    title: Text('Delete account and all data'),
                     onTap: () {
                       Modular.to.pushNamed('/delete_account');
                       //controller.user = null;
@@ -206,16 +206,13 @@ class _ConfigPageState extends ModularState<ConfigPage, AccountController> {
                   ListTile(
                     leading: Icon(Icons.power_settings_new,
                         color: Theme.of(context).colorScheme.secondary),
-                    title: Text('Sair (Logoff)'),
+                    title: Text('Logoff'),
                     onTap: () {
                       controller.userApp = null;
                       controller.logout();
                       WidgetsBinding.instance!.addPostFrameCallback((_){
                             Modular.to.pushReplacementNamed('/login/sociallogin');
                       });
-                      // SchedulerBinding.instance.addPostFrameCallback((_) {
-                      //     Modular.to.pushReplacementNamed('/login/sociallogin');
-                      // });
                     },
                   ),
                 ],

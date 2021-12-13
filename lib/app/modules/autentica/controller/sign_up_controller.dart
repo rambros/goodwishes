@@ -27,15 +27,7 @@ abstract class _SignUpControllerBase with Store {
   bool signUpCompleted = false;
 
   @action
-  Future handleSignUpwithEmailPassword(
-      {String? name, String? email, String? pass}) async {
-    _is.checkInternet();
-    if (_is.hasInternet == false) {
-      await _dialogService.showDialog(
-        title: 'Sem Internet',
-        description: 'Verifique sua conexão de internet',
-      );
-    } else {
+  Future handleSignUpwithEmailPassword({String? name,String? email, String? pass}) async {
       signUpStarted = true;
       final _firebaseUser =
           await _authenticationService.signUpwithEmailPassword(email, pass);
@@ -83,7 +75,6 @@ abstract class _SignUpControllerBase with Store {
           description: error,
         );
       }
-    }
   }
 
 

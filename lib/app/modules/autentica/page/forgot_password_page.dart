@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+
 import '/app/modules/autentica/controller/forget_password_controller.dart';
 
 class ForgotPasswordPage extends StatefulWidget {
@@ -20,9 +21,6 @@ class _ForgotPasswordPageState extends ModularState<ForgotPasswordPage, ForgetPa
   Widget build(BuildContext context) {
     return Scaffold(
         key: scaffoldKey,
-        //backgroundColor: Colors.white,
-        
-        
         body: Form(
             key: formKey,
             child: Padding(
@@ -43,29 +41,26 @@ class _ForgotPasswordPageState extends ModularState<ForgotPasswordPage, ForgetPa
                       
                     }),
                 ),
-                Text('Redefinir a senha', style: TextStyle(
+                Text('Reset Password', style: TextStyle(
                   fontSize: 25, fontWeight: FontWeight.w700
                 )),
-                Text('Siga estes passos simples', style: TextStyle(
-                  fontSize: 14, fontWeight: FontWeight.w500, color: Colors.grey
-                )),
+                // Text('Siga estes passos simples', style: TextStyle(
+                //   fontSize: 14, fontWeight: FontWeight.w500, color: Colors.grey
+                // )),
                 SizedBox(
                   height: 50,
                 ),
                 
                 TextFormField(
                   decoration: InputDecoration(
-                    hintText: 'nome@mail.com',
+                    hintText: 'name@mail.com',
                     labelText: 'Email'
-                    //suffixIcon: IconButton(icon: Icon(Icons.email), onPressed: (){}),
-                    
-                  
                     
                   ),
                   controller: emailCtrl,
                   keyboardType: TextInputType.emailAddress,
                   validator: (String? value){
-                    if (value!.isEmpty ) return 'Email não pode ficar vazio';
+                    if (value!.isEmpty ) return "Email can't be empty";
                     return null;
                   },
                   onChanged: (String value){
@@ -80,7 +75,7 @@ class _ForgotPasswordPageState extends ModularState<ForgotPasswordPage, ForgetPa
                   width: double.infinity,
                   child: RaisedButton(
                     color: Theme.of(context).accentColor,
-                    child: Text('Enviar', style: TextStyle(
+                    child: Text('Submit', style: TextStyle(
                       fontSize: 16, color: Colors.white
                     ),),
                     onPressed: (){

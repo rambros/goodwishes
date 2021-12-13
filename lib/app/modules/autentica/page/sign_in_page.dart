@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+
 import '/app/modules/autentica/controller/sign_in_controller.dart';
 import '/app/modules/autentica/util/icons_data.dart';
 
@@ -22,7 +22,7 @@ class _SignInPageState extends ModularState<SignInPage, SignInController> {
   var passCtrl = TextEditingController();
 
   var formKey = GlobalKey<FormState>();
-  var _scaffoldKey = new GlobalKey<ScaffoldState>();
+  final _scaffoldKey = GlobalKey<ScaffoldState>();
 
   String? email;
   String? pass;
@@ -78,23 +78,23 @@ class _SignInPageState extends ModularState<SignInPage, SignInController> {
             ),
             Text('Login',
                 style: TextStyle(fontSize: 25, fontWeight: FontWeight.w900)),
-            Text('Siga estes passos simples',
-                style: TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w500,
-                    color: Colors.grey)),
+            // Text('Siga estes passos simples',
+            //     style: TextStyle(
+            //         fontSize: 14,
+            //         fontWeight: FontWeight.w500,
+            //         color: Colors.grey)),
             SizedBox(
               height: 80,
             ),
             TextFormField(
               decoration: InputDecoration(
-                  hintText: 'nome@mail.com',
+                  hintText: 'name@mail.com',
                   //prefixIcon: Icon(Icons.email),
                   labelText: 'Email'),
               controller: emailCtrl,
               keyboardType: TextInputType.emailAddress,
               validator: (String? value) {
-                if (value!.isEmpty) return 'Email não pode ficar vazio';
+                if (value!.isEmpty) return 'Email is necessary to access app';
                 return null;
               },
               onChanged: (String value) {
@@ -110,8 +110,8 @@ class _SignInPageState extends ModularState<SignInPage, SignInController> {
               obscureText: offsecureText,
               controller: passCtrl,
               decoration: InputDecoration(
-                labelText: 'Senha',
-                hintText: 'Entre com a senha',
+                labelText: 'Password',
+                hintText: 'Input your password',
                 //prefixIcon: Icon(Icons.vpn_key),
                 suffixIcon: IconButton(
                     icon: lockIcon,
@@ -120,7 +120,7 @@ class _SignInPageState extends ModularState<SignInPage, SignInController> {
                     }),
               ),
               validator: (String? value) {
-                if (value!.isEmpty) return 'Senha não pode ficar vazia';
+                if (value!.isEmpty) return "Password can't be empty";
                 return null;
               },
               onChanged: (String value) {
@@ -143,7 +143,7 @@ class _SignInPageState extends ModularState<SignInPage, SignInController> {
                           builder: (context) => ForgotPasswordPage()));
                 },
                 child: Text(
-                  'Esqueceu sua senha?',
+                  'Forgot your password?',
                   style: TextStyle(
                     fontSize: 16,
                     //color: Theme.of(context).primaryColorDark,
@@ -179,7 +179,7 @@ class _SignInPageState extends ModularState<SignInPage, SignInController> {
                           )
                         : controller.signInComplete == false
                             ? CircularProgressIndicator()
-                            : Text('Login feito com sucesso!',
+                            : Text('Login completed with success!',
                                 style:
                                     TextStyle(fontSize: 16, color: Colors.white)),
                   ),
@@ -192,12 +192,12 @@ class _SignInPageState extends ModularState<SignInPage, SignInController> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Text('Não tem cadastro?'),
+                Text("Don't have an account?"),
                 TextButton(
                   onPressed: () {
                     Modular.to.pushReplacementNamed('/login/signup');
                   },
-                  child: Text('Cadastrar',
+                  child: Text('Sign up',
                       style: TextStyle(
                         fontSize: 16,
                         color: Colors.grey[500],

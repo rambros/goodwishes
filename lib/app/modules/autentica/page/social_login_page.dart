@@ -30,7 +30,6 @@ class _SocialLoginPageState
     return WillPopScope(
           onWillPop: () async => controller.exitApp(),
           child: Scaffold(
-        //backgroundColor: Colors.white,
         body: Container(
           height: double.infinity,
           width: double.infinity,
@@ -53,11 +52,11 @@ class _SocialLoginPageState
                         crossAxisAlignment: CrossAxisAlignment.center,
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: <Widget>[
-                          Text('Bem-vindo ao MeditaBK',
+                          Text('Welcome to GoodWishes App',
                               style: TextStyle(
-                                  fontSize: 25, fontWeight: FontWeight.w700)),
+                                  fontSize: 22, fontWeight: FontWeight.w700)),
                           verticalSpace(2),
-                          Text('Faça Login pra continuar',
+                          Text('Please Login to continue',
                               style: TextStyle(
                                   fontSize: 16,
                                   fontWeight: FontWeight.w400,
@@ -212,13 +211,13 @@ class _SocialLoginPageState
               // ),
 
               Spacer(),
-              Text('Não tem conta nas redes sociais? '),
+              Text("Don't have a social media account?"),
               TextButton(
                 onPressed: () {
                   controller.gotoSignInWithEmail();
                 },
                 child: Text(
-                  'Continue com Email >>',
+                  'Continue with Email >>',
                   style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.w600,
@@ -252,14 +251,14 @@ class _SocialLoginPageState
             ),
       label: controller.signInCompleteGoogle == false
           ? Text(
-              ' Login com Google',
+              ' Login with Google',
               style: TextStyle(
                   fontSize: 15,
                   fontWeight: FontWeight.w500,
                   color: Colors.white),
             )
           : Text(
-              ' Concluído',
+              ' Completed',
               style: TextStyle(
                   fontSize: 15,
                   fontWeight: FontWeight.w500,
@@ -303,14 +302,14 @@ class _SocialLoginPageState
             ),
       label: controller.signInCompleteFb == false
           ? Text(
-              ' Login com Facebook',
+              ' Login with Facebook',
               style: TextStyle(
                   fontSize: 15,
                   fontWeight: FontWeight.w500,
                   color: Colors.white),
             )
           : Text(
-              ' Concluído',
+              ' Completed',
               style: TextStyle(
                   fontSize: 15,
                   fontWeight: FontWeight.w500,
@@ -351,14 +350,14 @@ class _SocialLoginPageState
             ),
       label: controller.signInCompleteApple == false
           ? Text(
-              ' Continuar com a Apple',
+              ' Login with Apple',
               style: TextStyle(
                   fontSize: 15,
                   fontWeight: FontWeight.w500,
                   color: Colors.white),
             )
           : Text(
-              ' Concluído',
+              ' Completed',
               style: TextStyle(
                   fontSize: 15,
                   fontWeight: FontWeight.w500,

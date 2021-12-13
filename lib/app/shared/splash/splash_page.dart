@@ -28,29 +28,14 @@ class _SplashPageState extends State<SplashPage> {
     );
     Future.delayed(Duration(milliseconds: 2000), () { 
       if (_authenticationService.isUserLoggedIn() == false) {
-        //if (_userService.currentUser == null) {
-          Modular.to.pushReplacementNamed('/login');
+          Modular.to.pushReplacementNamed('/login/sociallogin');
         } else {
           _userService.populateCurrentUser(_authenticationService.currentAuthUser);
-          Modular.to.pushReplacementNamed('/');  //original é home /
+          Modular.to.pushReplacementNamed('/'); 
         }
       },
       );
     }
-
-  // disposer = autorun((_) {
-  //   final auth = Modular.get<AuthenticationService>();
-  // if (auth.status == AuthenticationStatus.loggedIn) {
-  //   Modular.to.pushReplacementNamed('/');
-  // } else if (auth.status == AuthenticationStatus.loggedOut) {
-  //   Modular.to.pushReplacementNamed('/welcome');
-  //}
-  //   });
-  // @override
-  // void dispose() {
-  //   super.dispose();
-  //   disposer();
-  // }
 
   @override
   Widget build(BuildContext context) {
@@ -62,16 +47,16 @@ class _SplashPageState extends State<SplashPage> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  Image.asset('assets/images/logo_meditabk_2020.png',
+                  Image.asset('assets/images/logo_goodwishes_250.png',
                       width: 220, height: 220),
                   verticalSpace(24),
-                  Text('MeditaBK',
+                  Text('GoodWishes',
                       style: TextStyle(
                         fontWeight: FontWeight.w500,
                         fontSize: 48,
                         color: Colors.red[800],
                       )),
-                  Text('Versão $version'),
+                  Text('Version $version'),
                 ],
               ),
             ),

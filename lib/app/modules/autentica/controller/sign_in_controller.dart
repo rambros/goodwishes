@@ -5,13 +5,11 @@ import '/app/shared/services/analytics_service.dart';
 import '/app/shared/services/dialog_service.dart';
 import '/app/shared/services/authentication_service.dart';
 import '/app/shared/services/user_service.dart';
-import '../services/internet_service.dart';
 part 'sign_in_controller.g.dart';
 
 class SignInController = _SignInControllerBase with _$SignInController;
 abstract class _SignInControllerBase with Store {
   final _authenticationService = Modular.get<AuthenticationService>();
-  final _is = Modular.get<InternetService>();
   final _dialogService = Modular.get<DialogService>();
   final _userService = Modular.get<UserService>();
   final _analyticsService = Modular.get<AnalyticsService>();
@@ -28,13 +26,6 @@ abstract class _SignInControllerBase with Store {
   }
 
     void handleSignInwithEmailPassword({String? email, String? pass}) async {
-    _is.checkInternet();
-    if (_is.hasInternet == false) {
-      await _dialogService.showDialog(
-        title: 'Sem Internet',
-        description: 'Verifique sua conexão de internet',
-      );
-    } else {
       signInStart = true;
       var _firebaseUser = await _authenticationService.signInwithEmailPassword(email, pass); 
       if (_authenticationService.hasError == false) {
@@ -64,7 +55,6 @@ abstract class _SignInControllerBase with Store {
           );
         }
     }
-  }
 
   
   void handleAfterSignin() {

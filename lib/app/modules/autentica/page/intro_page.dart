@@ -1,28 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:goodwishes/app/shared/services/authentication_service.dart';
 import 'package:introduction_screen/introduction_screen.dart';
-import '/app/shared/services/authentication_service.dart';
 
+import '/app/modules/autentica/controller/intro_controller.dart';
 class IntroPage extends StatefulWidget {
   IntroPage({Key? key}) : super(key: key);
 
   @override
   _IntroPageState createState() => _IntroPageState();
 }
-
-class _IntroPageState extends State<IntroPage> {
-  final sb = Modular.get<AuthenticationService>();
-  void afterIntroComplete (){
-    sb.setSignIn();
-    Modular.to.pushReplacementNamed('/');
-    //nextScreenReplace(context, HomePage());
-  }
-
+class _IntroPageState extends ModularState<IntroPage, IntroController> {
   final List<PageViewModel> pages = [
     PageViewModel(
       titleWidget: Column(
         children: <Widget>[
-          Text('Meditações', style: TextStyle(
+          Text('Journey', style: TextStyle(
             fontSize: 20, fontWeight: FontWeight.w600,color: Colors.black87,
           ),),
           SizedBox(height: 8,),
@@ -37,13 +30,13 @@ class _IntroPageState extends State<IntroPage> {
         ],
       ),
       
-      body: '''O MeditaBK é o seu amigo que lhe ajuda a meditar. \nCom meditações guiadas em áudio e vídeo fica mais fácil parar por alguns minutos, respirar e ter uma vida mais serena e positiva. \nVocê pode ativar lembretes diários para praticar e acompanhar seu progresso no quadro de estatísticas. 
+      body: '''Consists of 21 steps. 21 steps of consistent practice can instill a habit. The journey will have a flow of content to build spiritual capacity and deeper experiences. Each step will have a theme/experience that is built on the previous one.  
             ''',
       image: Padding(
         padding: const EdgeInsets.all(24.0),
         child: Center(
           child: Image(
-            image: AssetImage('assets/images/star_small.png')
+            image: AssetImage('assets/images/demo_meditation.png')
           )
         ),
       ),
@@ -59,7 +52,7 @@ class _IntroPageState extends State<IntroPage> {
     PageViewModel(
       titleWidget: Column(
         children: <Widget>[
-          Text('Agenda e Programação', style: TextStyle(
+          Text('Fundamentals', style: TextStyle(
             fontSize: 20, fontWeight: FontWeight.w600,color: Colors.black87,
           ),),
           SizedBox(height: 8,),
@@ -75,10 +68,12 @@ class _IntroPageState extends State<IntroPage> {
       ),
       
       body:
-      '''Acesse todas as atividades online do site da Brahma Kumaris como palestras, cursos e workshops. \n\nEscolha entre os diversos temas sobre melhoria de qualidade de vida, meditação e autoconhecimento. \n\nPara facilitar, faça sua inscrição por meio do app.''',
+      '''To align & learn
+Clear grounding information: the need for good wishes, what is good wishes and how you can be a good wisher
+''',
       image: Center(
         child: Image(
-          image: AssetImage('assets/images/star_agenda_small.png')
+          image: AssetImage('assets/images/demo_fundamentals.png')
         ),
       ),
 
@@ -94,7 +89,7 @@ class _IntroPageState extends State<IntroPage> {
     PageViewModel(
       titleWidget: Column(
         children: <Widget>[
-          Text('Reflexões', style: TextStyle(
+          Text('Community', style: TextStyle(
             fontSize: 20, 
             fontWeight: FontWeight.w600,
             color: Colors.black87,
@@ -112,13 +107,14 @@ class _IntroPageState extends State<IntroPage> {
       ),
       
       body:
-          '''No Medita BK, você acessa mensagens diárias que são fonte de inspiração para ter atitudes e pensamentos mais positivos.
-\nVocê tem na palma da sua mão diversos vídeos de reflexões, palestras e entrevistas para o autoconhecimento.''',
+          '''Community of good wishers --a space to share, engage and sustain. 
+In the beginning this can be a place for sharing stories of good wishes, sharing experiences. As more members sign in to the app, we can create groups.
+''',
       image: Padding(
         padding: const EdgeInsets.all(24.0),
         child: Center(
           child: Image(
-            image: AssetImage('assets/images/star_escutando_small.png')
+            image: AssetImage('assets/images/demo_community.png')
           ),
         )
       ),
@@ -135,16 +131,12 @@ class _IntroPageState extends State<IntroPage> {
   Widget build(BuildContext context) {
     return IntroductionScreen(
       pages: pages,
-      onDone: () {
-        afterIntroComplete();
-      },
-      onSkip: () {
-        afterIntroComplete();
-      },
+      onDone: () => controller.afterIntroComplete(),
+      onSkip: () => controller.afterIntroComplete(),
       showSkipButton: true,
-      skip: const Text('Pular', style: TextStyle(fontWeight: FontWeight.w600, color: Colors.grey)),
+      skip: const Text('Skip', style: TextStyle(fontWeight: FontWeight.w600, color: Colors.grey)),
       next: const Icon(Icons.navigate_next),
-      done: const Text('Concluído', style: TextStyle(fontWeight: FontWeight.w600, color: Colors.black)),
+      done: const Text('Completed', style: TextStyle(fontWeight: FontWeight.w600, color: Colors.black)),
       dotsDecorator: DotsDecorator(
           size: const Size.square(7.0),
           activeSize: const Size(20.0, 5.0),

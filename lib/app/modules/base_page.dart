@@ -17,6 +17,7 @@ class BasePage extends StatefulWidget {
 
 class _BasePageState extends ModularState<BasePage, BaseController> {
   final _appSettings = Modular.get<AppController>();
+
   @override
   void initState() {
     controller.init();

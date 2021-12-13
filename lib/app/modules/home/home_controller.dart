@@ -87,7 +87,7 @@ abstract class _HomeController with Store {
 
   void logoff(){
     Modular.get<AuthenticationService>().logout();
-    Modular.to.pushReplacementNamed('/login');
+    Modular.to.pushReplacementNamed('/login/sociallogin');
   }
 
 }

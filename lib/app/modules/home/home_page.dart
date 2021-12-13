@@ -17,8 +17,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends ModularState<HomePage, HomeController> {
-  //final _appSettings = Modular.get<AppController>();
-
   double paddingValue = 20;
 
   @override
@@ -45,33 +43,6 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
-          //verticalSpace(MediaQuery.of(context).size.height * .08,),
-          // Padding(
-          //   padding: const EdgeInsets.symmetric(),
-          //   child: Text(
-          //     'MeditaBK',
-          //     style: TextStyle(fontSize: 32, fontWeight: FontWeight.w600),
-          //   ),
-          // ),
-          // RichText(
-          //   text: TextSpan(
-          //     text: 'Bem-vindo ao ',
-          //     style: TextStyle(
-          //         fontFamily: 'Poppins',
-          //         fontSize: 20,
-          //         fontWeight: FontWeight.w400,
-          //         color: Colors.grey[700]),
-          //     children: <TextSpan>[
-          //       TextSpan(
-          //           text: 'MeditaBK',
-          //           style: TextStyle(
-          //               color: Colors.black, fontWeight: FontWeight.w600)),
-          //       // TextSpan(
-          //       //     text: 'BK',
-          //       //     style: TextStyle(color: Colors.orangeAccent, fontWeight: FontWeight.w600)),
-          //     ],
-          //   ),
-          // ),
           verticalSpace(32),
           Center(
             child: Text(
@@ -155,39 +126,29 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
     switch (index) {
       case 0:
         return LinearGradient(
-                            begin: Alignment(0.0 ,0.0 ),
-                            end: Alignment(1.0 , 1.0 ),
-                            colors: [homeOptions[index].colorEnd!, homeOptions[index].colorStart!]);
-        break;
+                begin: Alignment(0.0 ,0.0 ),
+                end: Alignment(1.0 , 1.0 ),
+                colors: [homeOptions[index].colorEnd!, homeOptions[index].colorStart!]);
       case 1:
         return LinearGradient(
-                            begin: Alignment(0.0 ,1.0 ),
-                            end: Alignment(1.0 , 0.0 ),
-                            colors: [homeOptions[index].colorStart!, homeOptions[index].colorEnd!]);
-        break;
+                begin: Alignment(0.0 ,1.0 ),
+                end: Alignment(1.0 , 0.0 ),
+                colors: [homeOptions[index].colorStart!, homeOptions[index].colorEnd!]);
       case 2:
         return LinearGradient(
-                            begin: Alignment(0.0 ,1.0 ),
-                            end: Alignment(1.0 , 0.0 ),
-                            colors: [homeOptions[index].colorEnd!, homeOptions[index].colorStart!]);
-        break;
+                begin: Alignment(0.0 ,1.0 ),
+                end: Alignment(1.0 , 0.0 ),
+                colors: [homeOptions[index].colorEnd!, homeOptions[index].colorStart!]);
       case 3:
         return LinearGradient(
-                            begin: Alignment(0.0 ,0.0 ),
-                            end: Alignment(1.0 , 1.0 ),
-                            colors: [homeOptions[index].colorStart!, homeOptions[index].colorEnd!]);
-        break;  
+                begin: Alignment(0.0 ,0.0 ),
+                end: Alignment(1.0 , 1.0 ),
+                colors: [homeOptions[index].colorStart!, homeOptions[index].colorEnd!]);
       default:
         return LinearGradient(
-                            begin: Alignment(0.0 ,0.0 ),
-                            end: Alignment(1.0 , 1.0 ),
-                            colors: [homeOptions[index].colorStart!, homeOptions[index].colorEnd!]);
-        break;
+                begin: Alignment(0.0 ,0.0 ),
+                end: Alignment(1.0 , 1.0 ),
+                colors: [homeOptions[index].colorStart!, homeOptions[index].colorEnd!]);
     }
-
-    return LinearGradient(
-                            begin: Alignment(0.0 ,0.0 ),
-                            end: Alignment(1.0 , 1.0 ),
-                            colors: [homeOptions[index].colorStart!, homeOptions[index].colorEnd!]);
   }
 }
