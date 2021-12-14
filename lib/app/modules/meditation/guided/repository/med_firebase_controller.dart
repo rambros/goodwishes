@@ -33,7 +33,7 @@ abstract class _MeditationFirebaseControllerBase with Store {
           List<Meditation> updatedMeditations = meditationsData;
           if (updatedMeditations != null && updatedMeditations.isNotEmpty) {
             _meditations = updatedMeditations;
-            _meditations!.sort((a, b) => b.date!.compareTo(a.date!));
+            _meditations.sort((a, b) => b.date!.compareTo(a.date!));
           // _meditationsFiltered = List<Meditation>.from(_meditations);
           isListening = true;
           }

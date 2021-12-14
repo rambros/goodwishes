@@ -24,7 +24,7 @@ class MeditationFirebaseRepository implements IMeditationRepository {
       if (refDocumentSnapshot.docs.isNotEmpty) {
         return refDocumentSnapshot.docs
             .map((snapshot) => Meditation.fromMap(snapshot.data(), snapshot.id))
-            .where((mappedItem) => mappedItem!.title != null)
+            .where((mappedItem) => mappedItem.title != null)
             .toList();
       }
     } catch (e) {
@@ -44,7 +44,7 @@ class MeditationFirebaseRepository implements IMeditationRepository {
       if (refsSnapshot.docs.isNotEmpty) {
         var refs = refsSnapshot.docs
             .map((snapshot) => Meditation.fromMap(snapshot.data(), snapshot.id))
-            .where((mappedItem) => mappedItem!.title != null)
+            .where((mappedItem) => mappedItem.title != null)
             .toList();
 
         // Add the posts onto the controller
@@ -61,7 +61,7 @@ class MeditationFirebaseRepository implements IMeditationRepository {
       if (refDocumentSnapshot.docs.isNotEmpty) {
         return refDocumentSnapshot.docs
             .map((snapshot) => Meditation.fromMap(snapshot.data(), snapshot.id))
-            .where((mappedItem) => mappedItem!.title != null)
+            .where((mappedItem) => mappedItem.title != null)
             .toList();
       }
     } catch (e) {
@@ -73,7 +73,7 @@ class MeditationFirebaseRepository implements IMeditationRepository {
   }
 
   @override
-  Future changeToDraftMeditation(String? documentId) async {
+  Future changeToDraftStep(String? documentId) async {
     try {
         //get doc from published ref
         var snapshot = await _meditationsPublishedReference.doc(documentId).get();

@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:mobx/mobx.dart';
 
-import '../../modules/home/home_option_model.dart';
+import '../../modules/home_option_model.dart';
 import './mensagens/mensagem.dart';
 part 'conhecimento_controller.g.dart';
 

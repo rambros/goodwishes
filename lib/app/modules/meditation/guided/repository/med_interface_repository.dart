@@ -10,7 +10,7 @@ abstract class IMeditationRepository {
   //Future addMeditation(Meditation meditation);
   Future searchMeditations(String text); 
   //Future deleteMeditation(String documentId);
-  Future changeToDraftMeditation(String? documentId);
+  Future changeToDraftStep(String? documentId);
   Future updateMeditation(Meditation? meditation, Map<String, dynamic> updateMap); 
 
   Future updateMeditationComments(Meditation? meditation, List<Comment>? listComments);

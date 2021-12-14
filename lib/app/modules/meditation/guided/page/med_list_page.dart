@@ -5,6 +5,7 @@ import 'package:flutter_modular/flutter_modular.dart';
 
 import '../controller/med_list_controller.dart';
 import '/app/modules/category/category_model.dart';
+import '/app/shared/widgets/page_bar_widget.dart';
 import '/app/shared/utils/color.dart';
 import '/app/shared/utils/shared_styles.dart';
 
@@ -31,73 +32,18 @@ class _MeditationListPageState
   Widget build(BuildContext context) {
     final userRole = controller.getUserRole;
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Meditações'),
-        actions: <Widget>[
-          IconButton(
-            padding: EdgeInsets.only(right: 28.0),
-            icon: Icon(Icons.search, size: 32.0 ),
-            onPressed: () {
-              controller.searchMeditation();
-            },
-          ),
-        ],
-      ),
+      appBar: PageBar(title: 'Journey'),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Column(
             mainAxisSize: MainAxisSize.max,
-            crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              FormBuilder(
-                key: _fbKey,
-                autovalidateMode: AutovalidateMode.always,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Observer(
-                      builder: (BuildContext context) {
-                        return Center(
-                          child: controller.hasCategories != null
-                              ? FormBuilderChoiceChip(
-                                  name: 'category',
-                                  initialValue: [],
-                                  backgroundColor: Theme.of(context).colorScheme.secondary,
-                                  selectedColor: selectedColor,
-                                  spacing: 4.0,
-                                  alignment: WrapAlignment.center,
-                                  decoration: InputDecoration(
-                                    border: InputBorder.none,
-                                    labelText:
-                                        'Selecione meditações por categoria',
-                                    labelStyle: TextStyle(
-                                                fontSize: 21,
-                                                //color: Colors.black,
-                                                fontWeight: FontWeight.w400),
-                                  ),
-                                  options: controller.listaCategoriasField(kTipoMeditation),
-                                  onChanged: (dynamic value) => controller.filterByCategory(value),
-                                )
-                              : Padding(
-                                  padding: const EdgeInsets.all(12.0),
-                                  child: Center(
-                                    child: CircularProgressIndicator(
-                                      valueColor: AlwaysStoppedAnimation(
-                                          Theme.of(context).colorScheme.secondary),
-                                    ),
-                                  ),
-                                ),
-                        );
-                      },
-                    ),
-                  ],
-                ),
-              ),
-
-              //verticalSpace(8),
-              Text(
-                'Meditações',
+              userRole == 'Admin' 
+              ? ManageSteps() 
+              : Text(
+                'Start your journey to master good wishes',
                 style: titleTextStyle,
               ),
               _meditationsRecentes(controller),
@@ -110,49 +56,27 @@ class _MeditationListPageState
   }
 }
 
-Widget _meditationsEmDestaque(MeditationListController controller) {
-  return Observer(
-    builder: (BuildContext context) {
-      return SizedBox(
-        height: 160,
-        child: controller.listFeatured!.isEmpty
-            ? Padding(
-                padding: const EdgeInsets.all(12.0),
-                child: Center(
-                  child: CircularProgressIndicator(
-                    valueColor:
-                        AlwaysStoppedAnimation(Theme.of(context).primaryColor),
-                  ),
-                ),
-              )
-            : ListView.builder(
-                shrinkWrap: true,
-                itemCount: controller.listFeatured!.length,
-                padding: EdgeInsets.only(top: 8.0, bottom: 8.0),
-                scrollDirection: Axis.horizontal,
-                itemBuilder: (context, index) => GestureDetector(
-                  onTap: () => controller.showMeditationDetailsFeatured(
-                    index,
-                  ),
-                  child: Container(
-                    width: 160.0,
-                    height: 160.0,
-                    margin: EdgeInsets.symmetric(horizontal: 8),
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(8.0),
-                      child: Image.network(
-                        controller.listFeatured![index].imageUrl!,
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-      );
-    },
-  );
-}
+class ManageSteps extends StatelessWidget {
+  const ManageSteps({
+    Key? key,
+  }) : super(key: key);
 
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+      style: ElevatedButton.styleFrom(
+        textStyle: const TextStyle(fontSize: 14),
+        primary: Theme.of(context).colorScheme.primary,
+        onPrimary: Theme.of(context).colorScheme.onPrimary,
+      elevation: 2,
+      ),
+      onPressed: () {
+        Modular.to.pushNamed('/meditation/draft/list');
+      },
+      child: Text('Manager Steps - only for Admins'.toUpperCase()),
+    );
+  }
+}
 
 Widget _meditationsRecentes(MeditationListController controller) {
   final userRole = controller.getUserRole;

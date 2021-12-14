@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+
 import '/app/shared/services/notification_service.dart';
 import '../app_controller.dart';
 import 'base_controller.dart';
@@ -33,12 +34,6 @@ class _BasePageState extends ModularState<BasePage, BaseController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      //appBar: AppBar(
-      //   title: Text('Home'),
-      //   leading: IconButton(icon: Icon(Icons.highlight_off), onPressed: (){
-      //     controller.logoff();
-      //   })
-      //),
       body: Observer(
         builder: (BuildContext context) {
           return controller.bodyViews.elementAt(controller.currentIndex);
@@ -51,10 +46,10 @@ class _BasePageState extends ModularState<BasePage, BaseController> {
             currentIndex: controller.currentIndex,
             selectedItemColor:  _appSettings.isDarkTheme! 
                   ? Colors.white
-                  : Colors.black87,
+                  : Theme.of(context).colorScheme.primary,
             unselectedItemColor: _appSettings.isDarkTheme! 
                   ? Colors.white54
-                  : Colors.black38,
+                  : Theme.of(context).colorScheme.primaryVariant,
             //type: BottomNavigationBarType.fixed,
             showUnselectedLabels: false,
             onTap: (index) {
@@ -63,34 +58,22 @@ class _BasePageState extends ModularState<BasePage, BaseController> {
             items: [
               BottomNavigationBarItem(
                 icon: ImageIcon(
-                  AssetImage('assets/images/icon/home.png'),
-                      size: 23),
-                label: 'Início',
-              ),
-              BottomNavigationBarItem(
-                icon: ImageIcon(
-                  AssetImage('assets/images/icon/mensagens.png'),
+                  AssetImage('assets/images/icon/assistir_palestra.png'),
                       size: 30),
-                label: 'Mensagens',
+                label: 'Fundamentals',
               ),
               BottomNavigationBarItem(
                 icon: ImageIcon(
                   AssetImage('assets/images/icon/meditar.png'),
                       size: 42),
-                label: 'Meditações',
+                label: 'Journey',
               ),
               BottomNavigationBarItem(
                 icon: ImageIcon(
-                  AssetImage('assets/images/icon/assistir_palestra.png'),
+                  AssetImage('assets/images/icon/mensagens.png'),
                       size: 30),
-                label: 'Videos',
+                label: 'Community',
               ),
-              BottomNavigationBarItem(
-                icon: ImageIcon(
-                  AssetImage('assets/images/icon/agenda.png'),
-                      size: 25),
-                label: 'Agenda',
-              )
             ],
           );
         },

@@ -45,7 +45,7 @@ abstract class _MeditationResultsControllerBase with Store {
     );
     if (dialogResponse.confirmed!) {
       setBusy(true);
-        var result = await _meditationRepository.changeToDraftMeditation(_meditations![index].documentId);
+        var result = await _meditationRepository.changeToDraftStep(_meditations![index].documentId);
         if (result is String) {
           await _dialogService.showDialog(
             title: 'Não foi possivel mudar o status da meditação',

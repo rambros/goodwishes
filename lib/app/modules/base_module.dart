@@ -13,8 +13,6 @@ import '../shared/author/page/author_select_page.dart';
 import '../shared/reminder/alarm.dart';
 import '../shared/settings/settings_page.dart';
 
-import 'agenda/agenda_controller.dart';
-import 'agenda/agenda_module.dart';
 import 'autentica/page/privacy_police_page.dart';
 import 'base_page.dart';
 import 'category/category_add_controller.dart';
@@ -36,10 +34,9 @@ import 'config/pages/feedback_page.dart';
 import 'config/pages/support_page.dart';
 import 'conhecimento/conhecimento_controller.dart';
 import 'conhecimento/conhecimento_module.dart';
-import 'home/home_controller.dart';
-import 'home/home_module.dart';
-import 'meditation/draft_meditation/repository/draft_med_firebase_controller.dart';
-import 'meditation/draft_meditation/repository/draft_med_firebase_repository.dart';
+import 'meditation/draft_step/repository/draft_step_firebase_controller.dart';
+import 'meditation/draft_step/repository/draft_step_firebase_repository.dart';
+import 'meditation/guided/controller/med_list_controller.dart';
 import 'meditation/guided/repository/med_firebase_controller.dart';
 import 'meditation/guided/repository/med_firebase_repository.dart';
 import 'meditation/meditation_controller.dart';
@@ -55,7 +52,6 @@ class BaseModule extends Module {
   @override
   List<Bind> get binds => [
         Bind((i) => AccountController()),
-        Bind((i) => AgendaController()),
         //Bind((i) => AudioPlayerController()),
         Bind((i) => AuthorAddController()),
         Bind((i) => AuthorEditController()),
@@ -66,10 +62,10 @@ class BaseModule extends Module {
         Bind((i) => CategoryListController()),
         Bind((i) => ConhecimentoController()),
         Bind((i) => DeleteAccountController()),
-        Bind((i) => DraftMeditationFirebaseController()),
-        Bind((i) => DraftMeditationFirebaseRepository()),
-        Bind((i) => HomeController()),
+        Bind((i) => DraftStepFirebaseController()),
+        Bind((i) => DraftStepFirebaseRepository()),
         Bind((i) => MeditationController()),
+        Bind((i) => MeditationListController()),
         Bind((i) => MeditationFirebaseController()),
         Bind((i) => MeditationFirebaseRepository()),
         Bind((i) => NotificationController()),
@@ -80,11 +76,9 @@ class BaseModule extends Module {
   @override
   List<ModularRoute> get routes => [
         ChildRoute('/', child: (_, args) => BasePage()),
-        ModuleRoute('/home', module:  HomeModule()),
         ModuleRoute('/conhecimento', module:  ConhecimentoModule()),
         ModuleRoute('/meditation', module: MeditationModule()),
         ModuleRoute('/video', module:  VideoModule()),
-        ModuleRoute('/agenda', module:  AgendaModule()),
 
         ChildRoute('/author/list', child: (_,args) => AuthorListPage()),
         ChildRoute('/author/add', child: (_,args) => AuthorAddPage()),

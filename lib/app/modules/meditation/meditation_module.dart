@@ -1,16 +1,15 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 import 'audio_player/audio_player_controller.dart';
 import 'audio_player/audio_player_page.dart';
-import 'draft_meditation/controller/draft_med_add_controller.dart';
-import 'draft_meditation/controller/draft_med_details_controller.dart';
-import 'draft_meditation/controller/draft_med_edit_controller.dart';
-import 'draft_meditation/controller/draft_med_list_controller.dart';
-import 'draft_meditation/page/draft_med_details_page.dart';
-import 'draft_meditation/page/draft_med_edit_page.dart';
-import 'draft_meditation/page/draft_med_list_page.dart';
-import 'draft_meditation/page/draft_med_add_page.dart';
+import 'draft_step/controller/draft_step_add_controller.dart';
+import 'draft_step/controller/draft_step_details_controller.dart';
+import 'draft_step/controller/draft_step_edit_controller.dart';
+import 'draft_step/controller/draft_step_list_controller.dart';
+import 'draft_step/page/draft_step_details_page.dart';
+import 'draft_step/page/draft_step_edit_page.dart';
+import 'draft_step/page/draft_step_list_page.dart';
+import 'draft_step/page/draft_step_add_page.dart';
 import 'guided/controller/med_details_controller.dart';
 import 'guided/controller/med_edit_controller.dart';
 import 'guided/controller/med_list_controller.dart';
@@ -24,7 +23,6 @@ import 'guided/page/med_results_page.dart';
 import 'guided/page/med_video_list_page.dart';
 import 'guided/page/meditation_search_page.dart';
 import 'meditation_controller.dart';
-import 'meditation_page.dart';
 import 'timer/controller/timer_controller.dart';
 import 'timer/controller/timer_end_sound_sel_controller.dart';
 import 'timer/controller/timer_music_sel_controller.dart';
@@ -59,10 +57,10 @@ class MeditationModule extends Module {
         Bind((i) => MeditationSearchController()),
         Bind((i) => MeditationResultsController()),
 
-        Bind((i) => DraftMeditationListController()),
-        Bind((i) => DraftMeditationAddController()),
-        Bind((i) => DraftMeditationEditController()),
-        Bind((i) => DraftMeditationDetailsController()),
+        Bind((i) => DraftStepListController()),
+        Bind((i) => DraftStepAddController()),
+        Bind((i) => DraftStepEditController()),
+        Bind((i) => DraftStepDetailsController()),
 
         Bind((i) => TimerController()),
         Bind((i) => TimerMusicSelController()),
@@ -77,11 +75,9 @@ class MeditationModule extends Module {
       ];
 
   @override
-  Widget get view => MeditationPage(); 
-
-  @override
   List<ModularRoute> get routes => [
-        ChildRoute('/', child: (_, args) => MeditationPage()),
+        //ChildRoute('/', child: (_, args) => MeditationPage()),
+        ChildRoute('/', child: (_, args) => MeditationListPage()),
         ChildRoute('/list', child: (_, args) => MeditationListPage()),
         ChildRoute('/details', child: (_, args) => MeditationDetailsPage(meditation: args.data)),
         ChildRoute('/edit', child: (_, args) => MeditationEditPage(meditation: args.data)),
@@ -90,10 +86,10 @@ class MeditationModule extends Module {
         ChildRoute('/audio_player', child: (_, args) => AudioPlayerPage(model: args.data)),
         ChildRoute('/results', child: (_, args) => MeditationResultsPage(meditations: args.data)),
 
-        ChildRoute('/draft/list', child: (_, args) => DraftMeditationListPage()),
-        ChildRoute('/draft/add', child: (_, args) => DraftMeditationAddPage()),
-        ChildRoute('/draft/edit', child: (_, args) => DraftMeditationEditPage(meditation: args.data)),
-        ChildRoute('/draft/details', child: (_, args) => DraftMeditationDetailsPage(meditation: args.data)),
+        ChildRoute('/draft/list', child: (_, args) => DraftStepListPage()),
+        ChildRoute('/draft/add', child: (_, args) => DraftStepAddPage()),
+        ChildRoute('/draft/edit', child: (_, args) => DraftStepEditPage(step: args.data)),
+        ChildRoute('/draft/details', child: (_, args) => DraftStepDetailsPage(step: args.data)),
 
         ChildRoute('/timer', child: (_, args) => TimerPage()),
         ChildRoute('/timer_player', child: (_, args) => TimerPlayerPage(timerModel: args.data)),
@@ -107,5 +103,4 @@ class MeditationModule extends Module {
         ChildRoute('/video/list', child: (_, args) => MeditationVideoListPage()),
       ];
 
-  //static Inject get to => Inject<MeditationModule>.of();
 }

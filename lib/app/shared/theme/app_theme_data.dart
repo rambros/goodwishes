@@ -3,7 +3,6 @@ import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'app_colors.dart';
-import 'text_styles.dart';
 
 class AppThemeData {
   //
@@ -42,8 +41,6 @@ class AppThemeData {
     pageTransitionsTheme: PageTransitionsTheme(builders: <TargetPlatform, PageTransitionsBuilder>{
       TargetPlatform.android: OpenUpwardsPageTransitionsBuilder(),
       TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
-      TargetPlatform.linux: OpenUpwardsPageTransitionsBuilder(),
-      TargetPlatform.macOS: OpenUpwardsPageTransitionsBuilder(),
     }),
   );
 
@@ -64,7 +61,7 @@ class AppThemeData {
     hoverColor: Colors.black12,
     fontFamily: GoogleFonts.sourceSansPro().fontFamily,
     bottomSheetTheme: BottomSheetThemeData(backgroundColor: appBackgroundColorDark),
-    primaryTextTheme: TextTheme(headline6: primaryTextStyle(color: Colors.white), overline: primaryTextStyle(color: Colors.white)),
+    //primaryTextTheme: TextTheme(headline6: primaryTextStyle(color: Colors.white), overline: primaryTextStyle(color: Colors.white)),
     cardTheme: CardTheme(color: cardBackgroundBlackDark),
     cardColor: appSecondaryBackgroundColor,
     iconTheme: IconThemeData(color: whiteColor),
@@ -79,8 +76,6 @@ class AppThemeData {
     pageTransitionsTheme: PageTransitionsTheme(builders: <TargetPlatform, PageTransitionsBuilder>{
       TargetPlatform.android: OpenUpwardsPageTransitionsBuilder(),
       TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
-      TargetPlatform.linux: OpenUpwardsPageTransitionsBuilder(),
-      TargetPlatform.macOS: OpenUpwardsPageTransitionsBuilder(),
     }),
   );
 }

@@ -40,7 +40,7 @@ class _SplashPageState extends State<SplashPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,  //Theme.of(context).accentColor,
+      backgroundColor: Colors.white,  
       body: Center(
         child: 
             Center(
@@ -49,13 +49,26 @@ class _SplashPageState extends State<SplashPage> {
                 children: <Widget>[
                   Image.asset('assets/images/logo_goodwishes_300.png',
                       width: 220, height: 220),
-                  verticalSpace(24),
-                  Text('GoodWishes',
-                      style: TextStyle(
-                        fontWeight: FontWeight.w500,
-                        fontSize: 48,
-                        color: Colors.red[800],
-                      )),
+                  verticalSpace(12),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Text('Good',
+                        style: TextStyle(
+                          fontWeight: FontWeight.w700,
+                          fontSize: 48,
+                          color: Theme.of(context).colorScheme.primary,
+                        )),
+                      Text('Wishes',
+                        style: TextStyle(
+                          fontWeight: FontWeight.w700,
+                          fontSize: 48,
+                          color: Theme.of(context).colorScheme.primaryVariant,
+                        )),
+                    ],
+                  ),
+                  verticalSpace(16),
                   Text('Version $version'),
                 ],
               ),

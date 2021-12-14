@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import '/app/modules/home/home_option_model.dart';
+import '/app/modules/home_option_model.dart';
 import '/app/shared/services/authentication_service.dart';
 import '/app/shared/services/user_service.dart';
 import 'package:mobx/mobx.dart';
@@ -44,18 +44,6 @@ abstract class _MeditationController with Store {
        colorStart: Colors.green[200],
        colorEnd: Colors.green[400],
        icon: Icons.spa,),
-    // HomeOption(
-    //    text: 'Compartilhar com amigos',
-    //    urlDestino: '/invite', 
-    //    color: Colors.purple[200],
-    //    icon: Icons.share,),
-    // HomeOption(
-    //    text: 'Alterar Configurações',
-    //    urlDestino: '/config', 
-    //    color: Colors.blueGrey[400],
-    //    icon: Icons.settings,),
-
-
   ];
 
   List<HomeOption> get listHomeOptions => _listHomeOptions;

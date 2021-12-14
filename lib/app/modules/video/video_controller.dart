@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import '/app/modules/home/home_option_model.dart';
+import '/app/modules/home_option_model.dart';
 import '/app/shared/services/authentication_service.dart';
 import '/app/shared/services/user_service.dart';
 import 'package:mobx/mobx.dart';

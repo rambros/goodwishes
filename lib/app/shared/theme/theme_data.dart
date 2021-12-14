@@ -81,6 +81,7 @@ ThemeData basicLightTheme() {
       textTheme: _basicTextTheme(base.textTheme),
       colorScheme: base.colorScheme.copyWith(
         primary: Color( 0xff633692 ),
+        primaryVariant: Color( 0xffAA8ABF ),
         //onPrimary: Color(0xff442C2E),
         secondary: Color( 0xff7e45ba ),
         //onSecondary: Color(0xff442C2E),

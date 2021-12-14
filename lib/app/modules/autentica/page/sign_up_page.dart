@@ -240,7 +240,6 @@ class _SignUpPageState extends ModularState<SignUpPage, SignUpController> {
                     style: TextStyle(
                       fontSize: 16,
                       color: Colors.grey,
-                      //color: Theme.of(context).primaryColorDark,
                       ),
                   ),
                 )
