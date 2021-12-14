@@ -25,10 +25,10 @@ ThemeData basicDarkTheme() {
   return base.copyWith(
     textTheme: _basicTextTheme(base.textTheme),
     colorScheme: base.colorScheme.copyWith(
-      primary: Color(0xFFC77D7A),
-      onPrimary: Color(0xff442C2E),
-      secondary: Color(0xFFfbb079),
-      onSecondary: Color(0xff442C2E),
+      primary: Color( 0xff633692 ),
+      //onPrimary: Color(0xff442C2E),
+      secondary: Color( 0xff7e45ba ),
+      //onSecondary: Color(0xff442C2E),
       error: Color(0xffC5032B),
     ),
     brightness: Brightness.dark,
@@ -37,6 +37,7 @@ ThemeData basicDarkTheme() {
 }
 
 
+///*** Light Theme ***
 
 ThemeData basicLightTheme() {
   TextTheme _basicTextTheme(TextTheme base) {
@@ -76,23 +77,24 @@ ThemeData basicLightTheme() {
 
   final base = ThemeData.light();
     return base.copyWith(
+      
       textTheme: _basicTextTheme(base.textTheme),
       colorScheme: base.colorScheme.copyWith(
-        primary: Color(0xFFC77D7A),
-        onPrimary: Color(0xff442C2E),
-        secondary: Color(0xFFfbb079),
-        onSecondary: Color(0xff442C2E),
+        primary: Color( 0xff633692 ),
+        //onPrimary: Color(0xff442C2E),
+        secondary: Color( 0xff7e45ba ),
+        //onSecondary: Color(0xff442C2E),
         error: Color(0xffC5032B),
       ),
       primaryColorDark: Color( 0xfff57c00 ),
 
       buttonTheme: base.buttonTheme.copyWith(
-          buttonColor: Color(0xFFC77D7A),
+          buttonColor: Color( 0xff633692 ),
 
       ),
 
       appBarTheme: AppBarTheme(
-        color: Color(0xFFC77D7A),
+        color: Color( 0xff633692 ),
 
         iconTheme: IconThemeData( color: Colors.white,), //Colors.black87,
       )

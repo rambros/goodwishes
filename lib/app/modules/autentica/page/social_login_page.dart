@@ -43,7 +43,7 @@ class _SocialLoginPageState
                     children: <Widget>[
                       Image(
                         image: AssetImage(Config().splashIcon),
-                        height: 130,
+                        height: 150,
                       ),
                       SizedBox(
                         height: 40,

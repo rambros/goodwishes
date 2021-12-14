@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:goodwishes/app/shared/services/authentication_service.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 
 import '/app/modules/autentica/controller/intro_controller.dart';
@@ -66,7 +65,6 @@ class _IntroPageState extends ModularState<IntroPage, IntroController> {
           )
         ],
       ),
-      
       body:
       '''To align & learn
 Clear grounding information: the need for good wishes, what is good wishes and how you can be a good wisher
@@ -76,8 +74,6 @@ Clear grounding information: the need for good wishes, what is good wishes and h
           image: AssetImage('assets/images/demo_fundamentals.png')
         ),
       ),
-
-
       decoration: const PageDecoration(
         pageColor: Colors.white,
         bodyTextStyle: TextStyle(color: Colors.black87, fontSize: 16),
@@ -105,7 +101,6 @@ Clear grounding information: the need for good wishes, what is good wishes and h
           )
         ],
       ),
-      
       body:
           '''Community of good wishers --a space to share, engage and sustain. 
 In the beginning this can be a place for sharing stories of good wishes, sharing experiences. As more members sign in to the app, we can create groups.

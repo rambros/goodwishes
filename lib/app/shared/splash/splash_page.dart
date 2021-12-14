@@ -47,7 +47,7 @@ class _SplashPageState extends State<SplashPage> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  Image.asset('assets/images/logo_goodwishes_250.png',
+                  Image.asset('assets/images/logo_goodwishes_300.png',
                       width: 220, height: 220),
                   verticalSpace(24),
                   Text('GoodWishes',

@@ -51,7 +51,6 @@ class _SignInPageState extends ModularState<SignInPage, SignInController> {
   Widget build(BuildContext context) {
     return Scaffold(
         key: _scaffoldKey, 
-        //backgroundColor: Colors.white, 
         body: signInUI());
   }
 
@@ -78,11 +77,6 @@ class _SignInPageState extends ModularState<SignInPage, SignInController> {
             ),
             Text('Login',
                 style: TextStyle(fontSize: 25, fontWeight: FontWeight.w900)),
-            // Text('Siga estes passos simples',
-            //     style: TextStyle(
-            //         fontSize: 14,
-            //         fontWeight: FontWeight.w500,
-            //         color: Colors.grey)),
             SizedBox(
               height: 80,
             ),
@@ -158,8 +152,7 @@ class _SignInPageState extends ModularState<SignInPage, SignInController> {
                   height: 45,
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      primary: Theme.of(context).accentColor, // background
-                      onPrimary: Colors.grey[900], // foreground
+                      primary: Theme.of(context).colorScheme.secondary, // background
                       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20))
                     ),
                     onPressed: () {

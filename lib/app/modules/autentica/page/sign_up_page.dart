@@ -2,6 +2,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+
 import '/app/modules/autentica/controller/sign_up_controller.dart';
 import '/app/modules/autentica/util/icons_data.dart';
 import '/app/shared/utils/ui_utils.dart';
@@ -20,7 +21,7 @@ class _SignUpPageState extends ModularState<SignUpPage, SignUpController> {
   var passCtrl = TextEditingController();
   var nameCtrl = TextEditingController();
   var formKey = GlobalKey<FormState>();
-  var _scaffoldKey = GlobalKey<ScaffoldState>();
+  final _scaffoldKey = GlobalKey<ScaffoldState>();
 
   String? email;
   String? pass;
@@ -45,7 +46,6 @@ class _SignUpPageState extends ModularState<SignUpPage, SignUpController> {
   Widget build(BuildContext context) {
     return Scaffold(
         key: _scaffoldKey, 
-        //backgroundColor: Colors.white, 
         body: signUpUI());
   }
 
@@ -70,13 +70,8 @@ class _SignUpPageState extends ModularState<SignUpPage, SignUpController> {
                     Navigator.pop(context);
                   }),
             ),
-            Text('Cadastro',
+            Text('Create an account',
                 style: TextStyle(fontSize: 25, fontWeight: FontWeight.w900)),
-            Text('Siga estes passos simples',
-                style: TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w500,
-                    color: Colors.grey)),
             SizedBox(
               height: 30,
             ),
@@ -84,12 +79,12 @@ class _SignUpPageState extends ModularState<SignUpPage, SignUpController> {
               controller: nameCtrl,
               keyboardType: TextInputType.text,
               decoration: InputDecoration(
-                labelText: 'Nome',
-                hintText: 'Entre com nome',
+                labelText: 'Name',
+                hintText: 'Enter with name',
                 //prefixIcon: Icon(Icons.person)
               ),
               validator: (String? value) {
-                if (value!.isEmpty) return 'Nome não pode ficar sem preencher';
+                if (value!.isEmpty) return "Name can't be empty";
                 return null;
               },
               onChanged: (String value) {
@@ -103,14 +98,14 @@ class _SignUpPageState extends ModularState<SignUpPage, SignUpController> {
             ),
             TextFormField(
               decoration: InputDecoration(
-                hintText: 'nome@mail.com',
+                hintText: 'name@mail.com',
                 labelText: 'Email',
                 //prefixIcon: Icon(Icons.email)
               ),
               controller: emailCtrl,
               keyboardType: TextInputType.emailAddress,
               validator: (String? value) {
-                if (value!.isEmpty) return 'Email não pode ficar sem preencher';
+                if (value!.isEmpty) return "Email can't be empty";
                 return null;
               },
               onChanged: (String value) {
@@ -126,9 +121,8 @@ class _SignUpPageState extends ModularState<SignUpPage, SignUpController> {
               controller: passCtrl,
               obscureText: offsecureText,
               decoration: InputDecoration(
-                labelText: 'Senha',
-                hintText: 'Entre com sua senha',
-                //prefixIcon: Icon(Icons.vpn_key),
+                labelText: 'Password',
+                hintText: 'Enter a password',
                 suffixIcon: IconButton(
                     icon: lockIcon,
                     onPressed: () {
@@ -136,7 +130,7 @@ class _SignUpPageState extends ModularState<SignUpPage, SignUpController> {
                     }),
               ),
               validator: (String? value) {
-                if (value!.isEmpty) return 'Senha não pode ficar em branco';
+                if (value!.isEmpty) return "Password can't be empty";
                 return null;
               },
               onChanged: (String value) {
@@ -165,14 +159,14 @@ class _SignUpPageState extends ModularState<SignUpPage, SignUpController> {
                           text: TextSpan(
                             children: [
                               TextSpan(
-                                text: 'Li e concordo com a ',
+                                text: 'I read and agree with ',
                                 style: TextStyle(
                                     fontSize: 14,
                                     fontWeight: FontWeight.w500,
                                     color: Colors.grey)
                               ),
                               TextSpan(
-                                text: 'Política de Privacidade',
+                                text: 'Privacy Policy',
                                 style: TextStyle(
                                       fontSize: 14,
                                       fontWeight: FontWeight.w500,
@@ -200,8 +194,7 @@ class _SignUpPageState extends ModularState<SignUpPage, SignUpController> {
                   width: double.infinity,
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      primary: Theme.of(context).accentColor, // background
-                      onPrimary: Colors.grey[900], // foreground
+                      primary: Theme.of(context).colorScheme.secondary,// background
                       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20))
                     ),
                     //color: Theme.of(context).accentColor, //Colors.deepPurpleAccent,
@@ -217,14 +210,14 @@ class _SignUpPageState extends ModularState<SignUpPage, SignUpController> {
                     },
                     child: controller.signUpStarted == false
                         ? Text(
-                            'Cadastrar',
+                            'Register',
                             style: TextStyle(fontSize: 16, 
                                   //color: Colors.white,
                                ),
                           )
                         : controller.signUpCompleted == false
                             ? CircularProgressIndicator()
-                            : Text('Cadastro feito com sucesso!',
+                            : Text('Account created with success!',
                                 style: TextStyle(
                                     fontSize: 16, color: Colors.white)),//Theme.of(context).accentColor
                   ),
@@ -237,7 +230,7 @@ class _SignUpPageState extends ModularState<SignUpPage, SignUpController> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Text('Já tem um cadastro?'),
+                Text('Have an account?'),
                 TextButton(
                   onPressed: () {
                     Modular.to.pushReplacementNamed('/login/signin');
