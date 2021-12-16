@@ -11,7 +11,7 @@ import 'package:timezone/timezone.dart' as tz;
 import '/app/shared/utils/color.dart';
 import 'reminder.dart';
 import 'time_zone.dart';
-// import 'package:meditation/screens/reminder/reminder-stats.dart';
+// import 'package:journey/screens/reminder/reminder-stats.dart';
 
 Time? timeofalarm;
 var showtime;

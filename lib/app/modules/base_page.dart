@@ -7,15 +7,11 @@ import '../app_controller.dart';
 import 'base_controller.dart';
 
 class BasePage extends StatefulWidget {
-  //final int tab;
-  const BasePage({
-    Key? key,
-  }) : super(key: key);
+  const BasePage({Key? key,}) : super(key: key);
 
   @override
   _BasePageState createState() => _BasePageState();
 }
-
 class _BasePageState extends ModularState<BasePage, BaseController> {
   final _appSettings = Modular.get<AppController>();
 

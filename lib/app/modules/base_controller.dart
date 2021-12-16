@@ -2,37 +2,33 @@ import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:mobx/mobx.dart';
 
-import '/app/shared/author/controller/author_controller.dart';
 import '/app/shared/services/authentication_service.dart';
 import '/app/shared/services/user_service.dart';
-import 'category/category_controller.dart';
-import 'conhecimento/conhecimento_page.dart';
-import 'meditation/guided/page/med_list_page.dart';
-import 'meditation/guided/repository/med_firebase_controller.dart';
-import 'video/video_page.dart';
+import 'community/community_page.dart';
+import 'fundamentals/fundamentals_page.dart';
+import 'journey/step/page/step_list_page.dart';
+import 'journey/step/repository/step_firebase_controller.dart';
 
 part 'base_controller.g.dart';
 
 class BaseController = _BaseControllerBase with _$BaseController;
 
 abstract class _BaseControllerBase with Store {
-  final _categoryController = Modular.get<CategoryController>();
   final _authenticationService = Modular.get<AuthenticationService>();
   final _userService = Modular.get<UserService>();
-  final _authorController = Modular.get<AuthorController>();
-  final _medFirebaseController = Modular.get<MeditationFirebaseController>();
+  final _stepFirebaseController = Modular.get<StepFirebaseController>();
 
   final List<Widget> _bodyViews = <Widget>[
-    ConhecimentoPage(),
-    MeditationListPage(),
-    VideoPage(),
+    FundamentalsPage(),
+    StepListPage(),
+    CommunityPage(),
   ];
 
 
   List<Widget> get bodyViews => _bodyViews;
 
   @observable
-  int? _currentIndex;
+  int? _currentIndex = 1;
 
   @action
   void changeIndex(int value) => _currentIndex = value;
@@ -42,11 +38,7 @@ abstract class _BaseControllerBase with Store {
 
 
    void init()  {
-     _categoryController.listenToCategories();
-     _medFirebaseController.listenToMeditations();
-    // _draftStepFirebaseController.listenToDraftSteps();
-     _authorController.getListAuthorsOnce();  
-     
+     _stepFirebaseController.listenToSteps();
      final fbUser = _authenticationService.currentAuthUser;
      if (fbUser != null) {
         var userValid = _userService.populateCurrentUser(fbUser);

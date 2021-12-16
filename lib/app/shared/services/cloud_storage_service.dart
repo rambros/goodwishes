@@ -85,10 +85,7 @@ class CloudStorageService {
     }
   }
 
-  Future<CloudStorageAudioResult?> uploadAudioFile({
-    required File audioToUpload,
-    required String title,
-  }) async {
+  Future<CloudStorageAudioResult?> uploadAudioFile(File audioToUpload) async {
     var _path = audioToUpload.path;
     var audioFileName = _path.split('/').last;
     var _extension = audioFileName.toString().split('.').last;
