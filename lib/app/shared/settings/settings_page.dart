@@ -18,7 +18,6 @@ class _SettingsPageState
 
   @override
   void initState() {
-    //controller.init();
     super.initState();
   }
 
@@ -28,7 +27,7 @@ class _SettingsPageState
     return Scaffold(
         appBar: AppBar(
           //backgroundColor: Colors.blueAccent,
-          title: Text('Configurações'),
+          title: Text('Settings'),
         ),
         body: SingleChildScrollView(
           child: Padding(
@@ -49,11 +48,11 @@ class _SettingsPageState
                         builder: (BuildContext context) {
                           return FormBuilderSwitch(
                             title: Text(
-                                     'Tema escuro',
+                                     'Dark theme',
                                      style: TextStyle(fontSize: 16),
                             ),
                             name: 'temaEscuro',
-                            activeColor: Theme.of(context).accentColor,
+                            activeColor: Theme.of(context).colorScheme.primary,
                             initialValue: controller.isDarkTheme,
                             onChanged: (value) =>
                                 controller.setDarkTheme(value),
@@ -63,14 +62,14 @@ class _SettingsPageState
                       verticalSpaceSmall,
                       FormBuilderSwitch(
                             title: Text(
-                                    'Receber notificações',
+                                    'Receive Notifications',
                                      style: TextStyle(fontSize: 16),
                             ),
                             name: 'notifications',
-                            activeColor: Theme.of(context).accentColor,
+                            activeColor: Theme.of(context).colorScheme.primary,
                             initialValue: _notificationsService.subscribed ?? true,
-                            onChanged: (bool) {
-                              _notificationsService.fcmSubscribe(bool!);
+                            onChanged: (value) {
+                              _notificationsService.fcmSubscribe(value!);
                               setState(() { });
                             }
                       ),
@@ -82,7 +81,7 @@ class _SettingsPageState
                   children: <Widget>[
                     Expanded(
                       child: MaterialButton(
-                        color: Theme.of(context).accentColor,
+                        color: Theme.of(context).colorScheme.primary,
                         onPressed: () {
                           _fbKey.currentState!.save();
                           if (_fbKey.currentState!.validate()) {
@@ -96,9 +95,9 @@ class _SettingsPageState
                           }
                         },
                         child: Text(
-                          'Atualizar',
+                          'Update',
                           style: TextStyle(
-                               //color: Colors.white,
+                               color: Theme.of(context).colorScheme.onPrimary,
                             ),
                         ),
                       ),

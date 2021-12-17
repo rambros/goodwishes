@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
@@ -31,7 +30,7 @@ class _AccountPageState extends ModularState<AccountPage, AccountController> {
     return Observer(builder: (BuildContext context) {
       return Scaffold(
       appBar: AppBar(
-        title: const Text('Editar seu perfil'),
+        title: const Text('Edit your Profile'),
       ),
       key: _scaffoldKey,
       //backgroundColor: Colors.white,
@@ -42,7 +41,7 @@ class _AccountPageState extends ModularState<AccountPage, AccountController> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                      Text('Aguarde enquanto os arquivos são salvos'),
+                      Text('Please wait while files are being processed'),
                       verticalSpace(30),
                       CircularProgressIndicator(),
                     ],
@@ -99,7 +98,7 @@ class _AccountPageState extends ModularState<AccountPage, AccountController> {
             height: MediaQuery.of(context).size.height * .24,
             width: double.infinity,
             decoration: BoxDecoration(
-              color: Theme.of(context).accentColor,
+              color: Theme.of(context).colorScheme.primary,
             ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -119,12 +118,12 @@ class _AccountPageState extends ModularState<AccountPage, AccountController> {
                               _novaImagem = true;
                             },
                             color: Colors.white,
-                            textColor: Theme.of(context).accentColor,
+                            textColor: Theme.of(context).colorScheme.primary,
                             splashColor: Colors.blue[100],
                             padding: EdgeInsets.all(15),
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(25.0)),
-                            child: const Text('Mudar Imagem'),
+                            child: const Text('Change Image'),
                           ),
                         ),
                       ],
@@ -133,11 +132,11 @@ class _AccountPageState extends ModularState<AccountPage, AccountController> {
                 ),
                 verticalSpace(10),
                 Text(
-                  controller.userApp!.fullName ?? 'Usuario',
+                  controller.userApp!.fullName ?? 'User',
                   style: TextStyle(
                     fontWeight: FontWeight.w500,
                     fontSize: 24,
-                    //color: Colors.white,
+                    color: Theme.of(context).colorScheme.onPrimary,
                   ),
                 ),
                 Text(
@@ -145,7 +144,7 @@ class _AccountPageState extends ModularState<AccountPage, AccountController> {
                   style: TextStyle(
                     fontWeight: FontWeight.w500,
                     fontSize: 16,
-                    //color: Colors.white,
+                    color: Theme.of(context).colorScheme.onPrimary,
                   ),
                 ),
               ],
@@ -221,10 +220,10 @@ class _AccountPageState extends ModularState<AccountPage, AccountController> {
                       Container(
                         width: MediaQuery.of(context).size.width - 100,
                         child: Text(
-                          'Editar Perfil',
+                          'Edit Your Profile',
                           textDirection: TextDirection.ltr,
                           style: TextStyle(
-                              color: Theme.of(context).accentColor,
+                              color: Theme.of(context).colorScheme.primary,
                               fontWeight: FontWeight.bold,
                               fontSize: 24),
                         ),
@@ -238,18 +237,18 @@ class _AccountPageState extends ModularState<AccountPage, AccountController> {
                     alignment: Alignment.center,
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(30.0),
-                        border: Border.all(color: Theme.of(context).accentColor)),
+                        border: Border.all(color: Theme.of(context).colorScheme.primary,)),
                     child: TextFormField(
                       initialValue: controller.userApp!.fullName,
                       style: TextStyle(fontWeight: FontWeight.w600),
                       keyboardType: TextInputType.emailAddress,
                       decoration: InputDecoration(
-                        hintText: 'Nome completo',
+                        hintText: 'Full name',
                         hintStyle: TextStyle(
                             fontSize: 15,
                             //color: splashIndicatorColor.withOpacity(0.8),
                             ),
-                        icon: Icon(Icons.person, color: Theme.of(context).accentColor),
+                        icon: Icon(Icons.person, color: Theme.of(context).colorScheme.primary,),
                         border: InputBorder.none,
                       ),
                       onSaved: (String? value) {
@@ -258,7 +257,7 @@ class _AccountPageState extends ModularState<AccountPage, AccountController> {
                       },
                       validator: (value) {
                         if (value!.isEmpty) {
-                          return 'Por favor entre com seu nome.';
+                          return 'Please, enter your name';
                         }
                         return null;
                       },
@@ -271,7 +270,7 @@ class _AccountPageState extends ModularState<AccountPage, AccountController> {
                     alignment: Alignment.center,
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(30.0),
-                        border: Border.all(color: Theme.of(context).accentColor)),
+                        border: Border.all(color: Theme.of(context).colorScheme.primary,)),
                     child: TextFormField(
                       initialValue: controller.userApp!.email,
                       style: TextStyle(fontWeight: FontWeight.w600),
@@ -282,7 +281,7 @@ class _AccountPageState extends ModularState<AccountPage, AccountController> {
                             fontSize: 15,
                             //color: splashIndicatorColor.withOpacity(0.8),
                             ),
-                        icon: Icon(Icons.email, color: Theme.of(context).accentColor),
+                        icon: Icon(Icons.email, color: Theme.of(context).colorScheme.primary,),
                         border: InputBorder.none,
                       ),
                       onSaved: (String? value) {
@@ -303,17 +302,17 @@ class _AccountPageState extends ModularState<AccountPage, AccountController> {
                     alignment: Alignment.center,
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(30.0),
-                        border: Border.all(color: Theme.of(context).accentColor)),
+                        border: Border.all(color: Theme.of(context).colorScheme.primary,)),
                     child: TextFormField(
                       obscureText: true,
                       style: TextStyle(fontWeight: FontWeight.w600),
                       decoration: InputDecoration(
-                        hintText: 'Alterar Senha',
+                        hintText: 'Change Password',
                         hintStyle: TextStyle(
                           fontSize: 15,
                           //color: splashIndicatorColor.withOpacity(0.9),
                         ),
-                        icon: Icon(Icons.lock, color: Theme.of(context).accentColor),
+                        icon: Icon(Icons.lock, color: Theme.of(context).colorScheme.primary,),
                         border: InputBorder.none,
                       ),
                       onSaved: (String? value) {
@@ -347,13 +346,13 @@ class _AccountPageState extends ModularState<AccountPage, AccountController> {
                                   );
                             }
                           },
-                          color: Theme.of(context).accentColor,
+                          color: Theme.of(context).colorScheme.primary,
                           textColor: Colors.white,
                           splashColor: Colors.blue[100],
                           padding: EdgeInsets.all(15),
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(25.0)),
-                          child: const Text('Salvar alterações'),
+                          child: const Text('Submit'),
                         ),
                       ),
                   ),

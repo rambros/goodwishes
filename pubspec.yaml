@@ -64,8 +64,6 @@ dependencies:
   supercharged: ^2.1.1
   skeleton_text: ^3.0.0
   syncfusion_flutter_charts: ^19.3.57
-  syncfusion_localizations: ^19.3.57
-  syncfusion_flutter_calendar: ^19.3.57
   timezone: ^0.8.0
   fluttertoast: ^8.0.8
   image_cropper: ^1.4.1
@@ -98,7 +96,6 @@ flutter:
     - assets/images/social-icon/
     - assets/images/icon/
     - assets/cfg/
-    - assets/json/mensagens.json
     - assets/sounds/background/
     - assets/sounds/gongo/
 

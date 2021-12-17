@@ -44,9 +44,6 @@ class _ForgotPasswordPageState extends ModularState<ForgotPasswordPage, ForgetPa
                 Text('Reset Password', style: TextStyle(
                   fontSize: 25, fontWeight: FontWeight.w700
                 )),
-                // Text('Siga estes passos simples', style: TextStyle(
-                //   fontSize: 14, fontWeight: FontWeight.w500, color: Colors.grey
-                // )),
                 SizedBox(
                   height: 50,
                 ),
@@ -73,8 +70,12 @@ class _ForgotPasswordPageState extends ModularState<ForgotPasswordPage, ForgetPa
                 Container(
                   height: 45,
                   width: double.infinity,
-                  child: RaisedButton(
-                    color: Theme.of(context).accentColor,
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      primary: Theme.of(context).colorScheme.primary,
+                      padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+                    ),
                     child: Text('Submit', style: TextStyle(
                       fontSize: 16, color: Colors.white
                     ),),
@@ -86,9 +87,6 @@ class _ForgotPasswordPageState extends ModularState<ForgotPasswordPage, ForgetPa
                   }),
                 ),
                 SizedBox(height: 50,),
-                
-               
-                
               ],
             ),
           ),

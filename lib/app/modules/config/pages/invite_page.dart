@@ -10,7 +10,7 @@ class InvitePage extends StatelessWidget {
     var size = Size(MediaQuery.of(context).size.width, 200.0);
     return Scaffold(
         appBar: AppBar(
-          title: Text('Convide seus amigos'),
+          title: Text('Invite your friends'),
         ),
         body: Container(
           child: Column(
@@ -32,7 +32,7 @@ class InvitePage extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(left: 20.0),
                 child: Text(
-                  'Convide seus amigos',
+                  'Invite your friends',
                   textAlign: TextAlign.center,
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
@@ -43,7 +43,7 @@ class InvitePage extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(12.0),
                 child: Text(
-                  'Convide seus amigos e amigas para experimentar este app de reflexões e meditações.',
+                  'Invite your friends to experience GoodWishes app',
                   textAlign: TextAlign.center,
                 ),
               ),
@@ -52,22 +52,22 @@ class InvitePage extends StatelessWidget {
               ),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  primary: Colors.teal,
-                  onPrimary: Colors.white,
+                  primary: Theme.of(context).colorScheme.primary,
+                  onPrimary: Theme.of(context).colorScheme.onPrimary,
                   shadowColor: Colors.red,
                   //color: Theme.of(context).colorScheme.secondary,
                   //textColor: Colors.white,
                   elevation: 2,
                 ),
                 onPressed: () {
-                  final RenderBox box = context.findRenderObject() as RenderBox;
+                  final box = context.findRenderObject() as RenderBox;
                   Share.share('''Olá, estou usando esse Aplicativo de MEDITAÇÃO.\n
 Ele nos ajuda na jornada do autoconhecimento e conexão com o Eu interior, por isso quero recomendar a você.\n
 Baixe no link a seguir o  App MEDITABK da Brahma Kumaris, é 100% gratuito. ${GlobalConfiguration().getString("dynamicLinkInvite")}''',
                       subject: 'App MeditaBK',
                       sharePositionOrigin: box.localToGlobal(Offset.zero) & box.size);
                 },
-                child: Text('Convidar amigos'.toUpperCase()),
+                child: Text('Invite your friends'.toUpperCase()),
               ),
               Expanded(child: Container()),
               ShareInvite(

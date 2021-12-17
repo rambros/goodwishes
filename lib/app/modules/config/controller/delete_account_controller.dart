@@ -32,7 +32,7 @@ abstract class _DeleteAccountControllerBase with Store {
 
     // delete authentication user    
     final _firebaseAuth = FirebaseAuth.instance;
-    final _fbUser = await _firebaseAuth.currentUser!;
+    final _fbUser = _firebaseAuth.currentUser!;
     await _fbUser.delete();
 
     await Modular.to.pushNamed('/login');

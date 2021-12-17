@@ -62,8 +62,7 @@ abstract class _AccountControllerBase with Store {
 
   @action
   Future selectImage() async {
-    
-    var tempImage = await _imageSelector.selectImage();
+    final File? tempImage = await _imageSelector.selectImage();
     if (tempImage != null) {
       _selectedImage = tempImage;
       await cropProfileImage();

@@ -14,6 +14,7 @@ import 'shared/settings/settings_controller.dart';
 import 'shared/splash/splash_controller.dart';
 import 'shared/splash/splash_page.dart';
 import 'shared/user/user_firebase_repository.dart';
+import 'shared/utils/image_selector.dart';
 
 class AppModule extends Module {
   @override
@@ -23,6 +24,7 @@ class AppModule extends Module {
 
         // Global services
         Bind((i) => DialogService()),
+        Bind((i) => ImageSelector()),
         Bind((i) => CloudStorageService()),
         Bind((i) => LocalStorageService()),
         Bind((i) => UserService()),

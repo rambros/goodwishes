@@ -146,7 +146,7 @@ class _ConfigPageState extends ModularState<ConfigPage, AccountController> {
                           color: Theme.of(context).colorScheme.secondary),
                       trailing: Icon(Icons.navigate_next,
                           color: Theme.of(context).colorScheme.secondary, size: 28),
-                      title: Text('Lembretes para meditar'),
+                      title: Text('Reminders to meditate'),
                       onTap: () {
                         Modular.to.pushNamed('/alarm');
                       }),
@@ -170,16 +170,6 @@ class _ConfigPageState extends ModularState<ConfigPage, AccountController> {
                       title: Text('Settings'),
                       onTap: () {
                         Modular.to.pushNamed('/settings');
-                      }),
-                  ListTile(
-                      leading: Icon(Icons.people,
-                          color: Theme.of(context).colorScheme.secondary),
-                      trailing: Icon(Icons.navigate_next,
-                          color: Theme.of(context).colorScheme.secondary, size: 28),
-                      title: Text('About authors of content'),
-                      onTap: () {
-                        //Navigator.pop(context);
-                        Modular.to.pushNamed('/author/list');
                       }),
                   ListTile(
                       leading: Icon(Icons.smartphone,

@@ -41,7 +41,7 @@ abstract class _BaseControllerBase with Store {
      _stepFirebaseController.listenToSteps();
      final fbUser = _authenticationService.currentAuthUser;
      if (fbUser != null) {
-        var userValid = _userService.populateCurrentUser(fbUser);
+        final dynamic userValid = _userService.populateCurrentUser(fbUser);
         if (userValid == null) {
           logoff();
         }

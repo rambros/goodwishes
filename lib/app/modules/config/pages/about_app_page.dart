@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_widget_from_html_core/flutter_widget_from_html_core.dart';
 import '/app/shared/utils/ui_utils.dart';
@@ -42,7 +41,7 @@ class _AboutAppPageState extends State<AboutAppPage> {
             Column(children: <Widget>[
               Container(
                 height: MediaQuery.of(context).size.height * .30,//30
-                color: Theme.of(context).accentColor,
+                color: Theme.of(context).colorScheme.primary,
                 padding: const EdgeInsets.all(8.0),
                 alignment: Alignment.center,
                 child: Column(
@@ -113,8 +112,8 @@ Para mais informações, acesse o site da Brahma Kumaris clicando no botão abai
                                 
                                 RaisedButton(
                                       onPressed: _launchURL,
+                                      color: Theme.of(context).colorScheme.primary,
                                       child: Text('Site da Brahma Kumaris',style: TextStyle(color: Colors.white)),
-                                      color: Theme.of(context).accentColor,
                                 ),
                                 verticalSpace(8),
                               ],

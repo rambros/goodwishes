@@ -1,7 +1,6 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
-import '/app/modules/autentica/services/internet_service.dart';
 import '/app/shared/services/analytics_service.dart';
 import '/app/shared/services/dialog_service.dart';
 import '/app/shared/services/authentication_service.dart';
@@ -15,7 +14,6 @@ class SignUpController = _SignUpControllerBase with _$SignUpController;
 
 abstract class _SignUpControllerBase with Store {
   final _authenticationService = Modular.get<AuthenticationService>();
-  final _is = Modular.get<InternetService>();
   final _dialogService = Modular.get<DialogService>();
   final _userService = Modular.get<UserService>();
   final _userRepository = Modular.get<IUserRepository>();

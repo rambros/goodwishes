@@ -5,7 +5,6 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:global_configuration/global_configuration.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:syncfusion_localizations/syncfusion_localizations.dart';
 
 import 'app_controller.dart';
 import 'shared/services/dialog_manager.dart';
@@ -31,8 +30,6 @@ class _AppWidgetState extends ModularState<AppWidget, AppController> {
           localizationsDelegates: [
             GlobalMaterialLocalizations.delegate,
             FormBuilderLocalizations.delegate,
-            // ... app-specific localization delegate[s] here
-            SfGlobalLocalizations.delegate
           ],
           supportedLocales: const [
             Locale('pt', 'BR'),
