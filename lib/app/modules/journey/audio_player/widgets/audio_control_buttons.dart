@@ -14,9 +14,9 @@ class AudioControlButtons extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           //RepeatButton(),
-          //PreviousSongButton(),
+          PreviousSongButton(),
           PlayButton(),
-          //NextSongButton(),
+          NextSongButton(),
           //ShuffleButton(),
         ],
       ),
@@ -63,6 +63,8 @@ class PreviousSongButton extends StatelessWidget {
       builder: (_, isFirst, __) {
         return IconButton(
           icon: Icon(Icons.skip_previous),
+          iconSize: 36.0,
+          color: Theme.of(context).colorScheme.onPrimary,
           onPressed: (isFirst) ? null : audioPlayerController.previous,
         );
       },
@@ -84,23 +86,23 @@ class PlayButton extends StatelessWidget {
           case ButtonState.loading:
             return Container(
               margin: EdgeInsets.all(8.0),
-              width: 64.0,
-              height: 64.0,
+              width: 32.0,
+              height: 32.0,
               color: Colors.white,
               child: CircularProgressIndicator(),
             );
           case ButtonState.paused:
             return IconButton(
               icon: Icon(Icons.play_arrow),
-              iconSize: 86.0,
-              color: Colors.white,
+              iconSize: 48.0,
+              color: Theme.of(context).colorScheme.onPrimary,
               onPressed: audioPlayerController.play,
             );
           case ButtonState.playing:
             return IconButton(
               icon: Icon(Icons.pause),
-              iconSize: 86.0,
-              color: Colors.white,
+              iconSize: 48.0,
+              color: Theme.of(context).colorScheme.onPrimary,
               onPressed: audioPlayerController.pause,
             );
         }
@@ -119,6 +121,8 @@ class NextSongButton extends StatelessWidget {
       builder: (_, isLast, __) {
         return IconButton(
           icon: Icon(Icons.skip_next),
+          iconSize: 36.0,
+          color: Theme.of(context).colorScheme.onPrimary,
           onPressed: (isLast) ? null : audioPlayerController.next,
         );
       },

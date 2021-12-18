@@ -16,7 +16,13 @@ class Playlist extends StatelessWidget {
             itemCount: playlistTitles.length,
             itemBuilder: (context, index) {
               return ListTile(
-                title: Text('${playlistTitles[index]}'),
+                title: Text(
+                  '${playlistTitles[index]}',
+                  style: TextStyle(
+                        fontSize: 16,
+                        color: Theme.of(context).colorScheme.onPrimary,
+                        fontWeight: FontWeight.w400),
+                  ),
               );
             },
           );

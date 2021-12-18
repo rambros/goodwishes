@@ -60,7 +60,7 @@ class JourneyModule extends Module {
         ChildRoute('/details', child: (_, args) => StepDetailsPage(step: args.data)),
         ChildRoute('/edit', child: (_, args) => StepEditPage(step: args.data)),
         ChildRoute('/search', child: (_, args) => StepSearchPage()),
-        ChildRoute('/audio_player', child: (_, args) => AudioPlayerPage(model: args.data)),
+        ChildRoute('/audio_player', child: (_, args) => AudioPlayerPage(args: args.data)),
         ChildRoute('/results', child: (_, args) => StepResultsPage(steps: args.data)),
 
         ChildRoute('/draft/list', child: (_, args) => DraftStepListPage()),
@@ -69,7 +69,5 @@ class JourneyModule extends Module {
         ChildRoute('/draft/details', child: (_, args) => DraftStepDetailsPage(step: args.data)),
 
         ChildRoute('/statistics', child: (_, args) => StatisticsPage()),
-        
       ];
-
 }

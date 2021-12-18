@@ -22,13 +22,16 @@ abstract class _stepDetailsControllerBase with Store {
   @observable
   StepModel? _step;
 
+  late List<Map<String, String>> _playlistStep;
+  List<Map<String, String>> get playlistStep => _playlistStep;
+
   void init(StepModel Step) {
     _step = Step;
-    _favoriteStep =
-        _userService.currentUser!.favorites!.contains(_step!.documentId);
+    _favoriteStep = _userService.currentUser!.favorites!.contains(_step!.documentId);
     _comments = Step.comments!.asObservable(); 
     _numLiked = _step!.numLiked;
     _numPlayed = _step!.numPlayed;
+    _playlistStep = _mountPlaylist(_step!);
   }
 
   /// ******************* Played block ***********************
@@ -177,6 +180,23 @@ abstract class _stepDetailsControllerBase with Store {
   @action
   void setBusy(bool value) {
     _busy = value;
+  }
+
+  
+  List<Map<String, String>> _mountPlaylist(StepModel step) {
+    return [{
+      'id': '1',
+      'title': 'Inspiration Audio',
+      'album': 'Brahma Kumaris - GoodWishes',
+      'url': step.inspirationAudioURL!,
+    },
+    {
+      'id': '2',
+      'title': 'Meditation Audio',
+      'album': 'Brahma Kumaris - GoodWishes',
+      'url': step.meditationAudioURL!,
+    },
+    ];
   }
 
 }

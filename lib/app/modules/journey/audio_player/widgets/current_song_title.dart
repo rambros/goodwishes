@@ -13,7 +13,13 @@ class CurrentSongTitle extends StatelessWidget {
       builder: (_, title, __) {
         return Padding(
           padding: const EdgeInsets.only(top: 8.0),
-          child: Text(title, style: TextStyle(fontSize: 40)),
+          child: Text(
+            'Playing  $title', 
+            style: TextStyle(
+              color: Theme.of(context).colorScheme.onPrimary,
+              fontSize: 32,
+              ),
+            ),
         );
       },
     );

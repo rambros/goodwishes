@@ -47,29 +47,37 @@ class _SplashPageState extends State<SplashPage> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  Image.asset('assets/images/logo_goodwishes_300.png',
+                  Image.asset('assets/images/logo_goodwishes.png',
                       width: 220, height: 220),
                   verticalSpace(12),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Text('Good',
-                        style: TextStyle(
-                          fontWeight: FontWeight.w700,
-                          fontSize: 48,
-                          color: Theme.of(context).colorScheme.primary,
-                        )),
-                      Text('Wishes',
-                        style: TextStyle(
-                          fontWeight: FontWeight.w700,
-                          fontSize: 48,
-                          color: Theme.of(context).colorScheme.primaryVariant,
-                        )),
-                    ],
-                  ),
+                  Image.asset('assets/images/goodwishes_text.png',
+                      width: 350, height: 48),
+                  // Row(
+                  //   mainAxisAlignment: MainAxisAlignment.center,
+                  //   crossAxisAlignment: CrossAxisAlignment.center,
+                  //   children: [
+                  //     Text('Good',
+                  //       style: TextStyle(
+                  //         fontWeight: FontWeight.w700,
+                  //         fontSize: 48,
+                  //         color: Theme.of(context).colorScheme.primary,
+                  //       )),
+                  //     Text('Wishes',
+                  //       style: TextStyle(
+                  //         fontWeight: FontWeight.w700,
+                  //         fontSize: 48,
+                  //         color: Theme.of(context).colorScheme.primaryVariant,
+                  //       )),
+                  //   ],
+                  // ),
                   verticalSpace(16),
-                  Text('Version $version'),
+                  Text('Version $version',
+                    style: TextStyle(
+                      fontSize: 16.0,
+                      fontWeight: FontWeight.w500,
+                      color: Theme.of(context).colorScheme.primary, 
+                    ),
+                  ),
                 ],
               ),
             ),

@@ -43,7 +43,7 @@ class StepItem extends StatelessWidget {
           child: Row(
             children: <Widget>[
               Expanded(
-                  child: Row(
+                child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Flexible(

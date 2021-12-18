@@ -83,8 +83,8 @@ dependency_overrides:
 flutter_icons:
   android: "launcher_icon" 
   ios: true
-  image_path: "assets/images/logo_meditabk_2020.png"
-  image_path_ios: "assets/images/logo_meditabk_2020_ios.png"    
+  image_path: "assets/images/logo_goodwishes.png"
+  image_path_ios: "assets/images/logo_goodwishes.png"    
 
 
 flutter:

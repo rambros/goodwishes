@@ -62,7 +62,7 @@ class _CommunityPageState
               color: Theme.of(context).colorScheme.primary,
             )),
           verticalSpace(36),
-          Image.asset('assets/images/logo_goodwishes_300.png',
+          Image.asset('assets/images/logo_goodwishes.png',
                       width: 220, height: 220),
         ],
       ),

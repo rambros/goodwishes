@@ -4,7 +4,6 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '/app/modules/autentica/controller/social_login_controller.dart';
-import '/app/modules/autentica/util/config.dart';
 import '/app/shared/services/authentication_service.dart';
 import '/app/shared/utils/ui_utils.dart';
 
@@ -41,27 +40,34 @@ class _SocialLoginPageState
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                      Image(
-                        image: AssetImage(Config().splashIcon),
-                        height: 150,
-                      ),
-                      SizedBox(
-                        height: 40,
-                      ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: <Widget>[
-                          Text('Welcome to GoodWishes App',
-                              style: TextStyle(
-                                  fontSize: 22, fontWeight: FontWeight.w700)),
-                          verticalSpace(2),
-                          Text('Please Login to continue',
-                              style: TextStyle(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w400,
-                                  color: Colors.grey)),
-                        ],
+                      Image.asset('assets/images/logo_goodwishes.png',
+                        width: 180, height: 180),
+                      verticalSpace(8),
+                      Image.asset('assets/images/goodwishes_text.png',
+                        width: 320, height: 42),
+                      Padding(
+                        padding: const EdgeInsets.all(16.0),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: <Widget>[
+                            Center(
+                              child: Text(
+                                'Community of well-wishers for a whole new world',
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  fontSize: 18, 
+                                  fontWeight: FontWeight.w500,
+                                )),
+                            ),
+                            verticalSpace(2),
+                            // Text('Please Login to continue',
+                            //     style: TextStyle(
+                            //         fontSize: 16,
+                            //         fontWeight: FontWeight.w400,
+                            //         color: Colors.grey)),
+                          ],
+                        ),
                       ),
                     ],
                   )),

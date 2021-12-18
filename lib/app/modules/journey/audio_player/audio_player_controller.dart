@@ -27,10 +27,11 @@ class AudioPlayerController {
   Stopwatch watch = Stopwatch();
 
   // Events: Calls coming from the UI
-  void init(PlayerModel _model) async {
+  //void init(PlayerModel _model) async {
+  void init({PlayerModel? model, List<Map<String, String>>? playlist}) async {
     print('init do controller do audio');
-    //await _loadPlaylist();
-    await _loadMusic(_model);
+    await _loadPlaylist(playlist!);
+    //await _loadMusic(_model);
     _listenToChangesInPlaylist();
     _listenToPlaybackState();
     _listenToCurrentPosition();
@@ -39,9 +40,9 @@ class AudioPlayerController {
     _listenToChangesInSong();
   }
 
-  Future<void> _loadPlaylist() async {
-    final songRepository = getIt<PlaylistRepository>();
-    final playlist = await songRepository.fetchInitialPlaylist();
+  Future<void> _loadPlaylist(List<Map<String, String>> playlist) async {
+    //final songRepository = getIt<PlaylistRepository>();
+    //final playlist = await songRepository.fetchInitialPlaylist();
     final mediaItems = playlist
         .map((song) => MediaItem(
               id: song['id'] ?? '',
