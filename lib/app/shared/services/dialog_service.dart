@@ -4,7 +4,7 @@ import 'package:flutter/cupertino.dart';
 import '/app/shared/services/dialog_models.dart';
 
 class DialogService {
-  GlobalKey<NavigatorState> _dialogNavigationKey = GlobalKey<NavigatorState>();
+  final _dialogNavigationKey = GlobalKey<NavigatorState>();
   late Function(DialogRequest) _showDialogListener;
   Completer<DialogResponse>? _dialogCompleter;
 

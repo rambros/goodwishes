@@ -1,6 +1,5 @@
 // Theme colors
 import 'package:flutter/material.dart';
-import 'package:flutter/painting.dart';
 
 final Color primaryColor = Color(0xFFDE8F94);
 final Color accentColor = Color(0xFFC77D7A);

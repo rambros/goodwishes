@@ -22,9 +22,9 @@ class MinuteHandPainter extends CustomPainter {
 
     canvas.translate(radius, radius);
 
-    canvas.rotate(2 * pi * ((this.minutes! + (this.seconds! / 60)) / 60));
+    canvas.rotate(2 * pi * ((minutes! + (seconds! / 60)) / 60));
 
-    Path path = Path();
+    var path = Path();
     path.moveTo(0.0, -radius * 0.6);
     path.lineTo(0.0, radius * 0.1);
 

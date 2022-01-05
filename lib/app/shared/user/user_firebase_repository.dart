@@ -124,7 +124,7 @@ class UserFirebaseRepository implements IUserRepository {
   Future deleteUser(String? uid) async {
 
     //delete firestore metadata of user
-    var _fbUser = await _usersCollectionReference.doc(uid);
+    var _fbUser = _usersCollectionReference.doc(uid);
     await _fbUser.delete();
 
 
@@ -143,7 +143,6 @@ class UserFirebaseRepository implements IUserRepository {
             .toList();
       }
     } catch (e) {
-      // TODO: Find or create a way to repeat error handling without so much repeated code
       if (e is PlatformException) {
         return e.message;
       }

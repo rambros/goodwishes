@@ -1,13 +1,12 @@
 import 'dart:async';
-import 'package:intl/intl.dart';
 
 import 'package:shared_preferences/shared_preferences.dart';
 
 class LocalStorageService {
   late SharedPreferences _preferences;
-  Completer<SharedPreferences> _instance = Completer<SharedPreferences>();
+  final _instance = Completer<SharedPreferences>();
 
-  init() async {
+  void init() async {
     _preferences = await SharedPreferences.getInstance();
     _instance.complete(await SharedPreferences.getInstance());
   }
@@ -91,12 +90,12 @@ class LocalStorageService {
   }
 
 
-  dynamic _getFromDisk(String key) async {
-    var sp = await SharedPreferences.getInstance();
-    var value = sp.get(key);
-    print('(TRACE) LocalStorageService:_getFromDisk. key: $key value: $value');
-    return value;
-  }
+  // dynamic _getFromDisk(String key) async {
+  //   var sp = await SharedPreferences.getInstance();
+  //   var value = sp.get(key);
+  //   print('(TRACE) LocalStorageService:_getFromDisk. key: $key value: $value');
+  //   return value;
+  // }
 
   void _saveToDisk<T>(String key, T content) async {
     var _sp = await SharedPreferences.getInstance();

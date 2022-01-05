@@ -1,3 +1,5 @@
+// ignore_for_file: omit_local_variable_types
+
 import 'package:flutter/material.dart';
 
 class ReminderStats extends StatelessWidget {
@@ -211,7 +213,7 @@ class GraphPainter extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
-    List val = [
+    var val = [
       size.height * 0.8,
       size.height * 0.5,
       size.height * 0.9,

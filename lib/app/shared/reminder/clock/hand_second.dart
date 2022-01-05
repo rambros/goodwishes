@@ -27,10 +27,10 @@ class SecondHandPainter extends CustomPainter {
 
     canvas.translate(radius, radius);
 
-    canvas.rotate(2 * pi * this.seconds! / 60);
+    canvas.rotate(2 * pi * seconds! / 60);
 
-    Path path1 = Path();
-    Path path2 = Path();
+    var path1 = Path();
+    var path2 = Path();
     path1.moveTo(0.0, -radius * 0.93);
     path1.lineTo(0.0, radius * 0.1);
 
@@ -45,6 +45,6 @@ class SecondHandPainter extends CustomPainter {
 
   @override
   bool shouldRepaint(SecondHandPainter oldDelegate) {
-    return this.seconds != oldDelegate.seconds;
+    return seconds != oldDelegate.seconds;
   }
 }

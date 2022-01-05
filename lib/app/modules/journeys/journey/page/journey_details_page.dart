@@ -46,7 +46,8 @@ class _JourneyDetailsPageState
               label: Text('Start Journey'),
               onPressed: () {
                 controller.addStep();
-              })
+              },
+          )
           : null,
         body: SingleChildScrollView(
           child: Padding(
@@ -60,8 +61,6 @@ class _JourneyDetailsPageState
                 verticalSpace(8),
                 DescriptionField(widget: widget),
                 verticalSpace(8),
-                //Text('Steps List'),
-                //verticalSpace(8),
                 StepsList(controller),
               ],
             ),

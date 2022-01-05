@@ -1,3 +1,5 @@
+// ignore_for_file: omit_local_variable_types
+
 import 'dart:convert';
 import 'dart:io';
 import 'package:http/http.dart' as http;
@@ -13,7 +15,7 @@ class YoutubeService {
   final String _baseUrl = 'www.googleapis.com';
   String _nextPageToken = '';
   int? _totalVideosPlayList = 0;
-  var _channel = Channel();
+  final _channel = Channel();
 
   void initializeToken() {
     _nextPageToken = '';
