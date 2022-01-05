@@ -197,7 +197,6 @@ class _SignUpPageState extends ModularState<SignUpPage, SignUpController> {
                       primary: Theme.of(context).colorScheme.secondary,// background
                       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20))
                     ),
-                    //color: Theme.of(context).accentColor, //Colors.deepPurpleAccent,
                     onPressed: () {
                       if (privacyConsent == false) {
                               controller.validatePrivacyConsent(privacyConsent);

@@ -63,7 +63,7 @@ class InvitePage extends StatelessWidget {
                   final box = context.findRenderObject() as RenderBox;
                   Share.share('''Olá, estou usando esse Aplicativo de MEDITAÇÃO.\n
 Ele nos ajuda na jornada do autoconhecimento e conexão com o Eu interior, por isso quero recomendar a você.\n
-Baixe no link a seguir o  App MEDITABK da Brahma Kumaris, é 100% gratuito. ${GlobalConfiguration().getString("dynamicLinkInvite")}''',
+Baixe no link a seguir o  App MEDITABK da Brahma Kumaris, é 100% gratuito. ${GlobalConfiguration().getValue("dynamicLinkInvite")}''',
                       subject: 'App MeditaBK',
                       sharePositionOrigin: box.localToGlobal(Offset.zero) & box.size);
                 },

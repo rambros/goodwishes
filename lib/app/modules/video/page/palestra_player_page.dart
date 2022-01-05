@@ -105,14 +105,14 @@ class _PalestraPlayerPageState extends State<PalestraPlayerPage> {
           children: <Widget>[
             ElevatedButton(
               style: ElevatedButton.styleFrom(
-                primary: Theme.of(context).accentColor, // background
+                primary: Theme.of(context).colorScheme.secondary, // background
                 onPrimary: Colors.white, // foreground
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
               ),
               //color: Theme.of(context).accentColor,
               //textColor: Colors.white,
               onPressed: () {
-                final RenderBox box = context.findRenderObject() as RenderBox;
+                final box = context.findRenderObject() as RenderBox;
                 Share.share(msgToShare,
                     subject: 'App MeditaBK',
                     sharePositionOrigin:
@@ -156,7 +156,7 @@ class _PalestraPlayerPageState extends State<PalestraPlayerPage> {
                         Icons.share,
                         color: Colors.white),
                         onPressed: () {
-                          final RenderBox box = context.findRenderObject() as RenderBox;
+                          final box = context.findRenderObject() as RenderBox;
                           Share.share(msgToShare,
                               subject: 'App MeditaBK',
                               sharePositionOrigin:

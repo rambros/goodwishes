@@ -22,17 +22,16 @@ import 'config/pages/feature_page.dart';
 import 'config/pages/feedback_page.dart';
 import 'config/pages/support_page.dart';
 import 'fundamentals/fundamentals_module.dart';
-import 'journey/draft_step/repository/draft_step_firebase_controller.dart';
-import 'journey/draft_step/repository/draft_step_firebase_repository.dart';
-import 'journey/step/controller/step_list_controller.dart';
-import 'journey/step/repository/step_firebase_controller.dart';
-import 'journey/step/repository/step_firebase_repository.dart';
-import 'journey/journey_controller.dart';
-import 'journey/journey_module.dart';
+import 'journeys/draft_step/repository/draft_step_firebase_controller.dart';
+import 'journeys/draft_step/repository/draft_step_firebase_repository.dart';
+import 'journeys/journey/controller/journey_list_controller.dart';
+import 'journeys/journey/repository/firebase_journey_repository.dart';
+import 'journeys/step/repository/step_firebase_controller.dart';
+import 'journeys/step/repository/step_firebase_repository.dart';
+import 'journeys/journey_module.dart';
 import 'notification/controller/notification_controller.dart';
 import 'notification/pages/notification_page.dart';
 import 'notification/repository/notification_firebase_repository.dart';
-import 'video/page/canal_viver_list_page.dart';
 import 'video/page/palestra_list_page.dart';
 import 'video/video_controller.dart';
 
@@ -42,13 +41,16 @@ class BaseModule extends Module {
         Bind((i) => AccountController()),
         Bind((i) => BaseController()),
         Bind((i) => CommunityController()),
+
         Bind((i) => DeleteAccountController()),
-        Bind((i) => DraftStepFirebaseController()),
+        Bind((i) => JourneyListController()),
+        Bind((i) => FirebaseJourneyRepository()),
+
         Bind((i) => DraftStepFirebaseRepository()),
-        Bind((i) => JourneyController()),
-        Bind((i) => StepListController()),
+        Bind((i) => DraftStepFirebaseController()),
         Bind((i) => StepFirebaseController()),
         Bind((i) => StepFirebaseRepository()),
+        
         Bind((i) => NotificationController()),
         Bind((i) => NotificationFirebaseRepository()),
         Bind((i) => VideoController()),
@@ -56,11 +58,11 @@ class BaseModule extends Module {
 
   @override
   List<ModularRoute> get routes => [
-        ChildRoute('/', child: (_, args) => BasePage()),
         ModuleRoute('/community', module:  CommunityModule()),
-        ChildRoute('/video/palestra/list', child: (_,args) => PalestrasListPage()),
         ModuleRoute('/journey', module: JourneyModule()),
         ModuleRoute('/fundamentals', module:  FundamentalsModule()),
+        ChildRoute('/video/palestra/list', child: (_,args) => PalestrasListPage()),
+        ChildRoute('/', child: (_, args) => BasePage()),
 
         ChildRoute('/about', child: (_,args) => AboutAppPage()),
         ChildRoute('/alarm', child: (_,args) => Alarm()),
@@ -74,7 +76,6 @@ class BaseModule extends Module {
         ChildRoute('/invite', child: (_,args) => InvitePage()),
         ChildRoute('/notification', child: (_,args) => NotificationPage()),
         ChildRoute('/privacy', child: (_,args) => PrivacyPolicePage()),
-        ChildRoute('/video/canalviver', child: (_,args) => CanalViverListPage()),
         ChildRoute('/settings', child: (_,args) => SettingsPage()),
         ChildRoute('/support', child: (_,args) => SupportPage()),
   ];

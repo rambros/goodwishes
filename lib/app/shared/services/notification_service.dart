@@ -61,7 +61,7 @@ abstract class _NotificationServiceBase with Store {
 
   Future getNlengthFromSP() async {
     final sp = await SharedPreferences.getInstance();
-    int _savedLength = sp.get('saved length') as int? ?? 0;
+    var _savedLength = sp.get('saved length') as int? ?? 0;
     _savedNlength = _savedLength;
   }
 

@@ -109,11 +109,14 @@ Para mais informações, acesse o site da Brahma Kumaris clicando no botão abai
                                             ),
                                   ],
                                 ),
-                                
-                                RaisedButton(
-                                      onPressed: _launchURL,
-                                      color: Theme.of(context).colorScheme.primary,
-                                      child: Text('Site da Brahma Kumaris',style: TextStyle(color: Colors.white)),
+                                ElevatedButton(
+                                  style: ElevatedButton.styleFrom(
+                                    elevation: 4,
+                                    primary: Theme.of(context).colorScheme.secondary,// background
+                                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20))
+                                  ),
+                                  onPressed: _launchURL, 
+                                  child: Text('Brahma Kumaris web page',style: TextStyle(color: Colors.white)),
                                 ),
                                 verticalSpace(8),
                               ],

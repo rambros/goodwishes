@@ -112,19 +112,19 @@ class _AccountPageState extends ModularState<AccountPage, AccountController> {
                         _showUserPicture(),
                         Padding(
                           padding: const EdgeInsets.all(16.0),
-                          child: RaisedButton(
-                            onPressed: () async {
-                              await controller.selectImage();
-                              _novaImagem = true;
-                            },
-                            color: Colors.white,
-                            textColor: Theme.of(context).colorScheme.primary,
-                            splashColor: Colors.blue[100],
-                            padding: EdgeInsets.all(15),
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(25.0)),
-                            child: const Text('Change Image'),
+                          child:
+                        ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            elevation: 4,
+                            primary: Theme.of(context).colorScheme.secondary,// background
+                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25))
                           ),
+                          onPressed: () async {
+                                        await controller.selectImage();
+                                        _novaImagem = true;
+                                      },
+                          child: const Text('Change Image'),
+                        ),
                         ),
                       ],
                     );
@@ -334,26 +334,26 @@ class _AccountPageState extends ModularState<AccountPage, AccountController> {
                       1.8,
                       Padding(
                         padding: const EdgeInsets.all(16.0),
-                        child: RaisedButton(
-                          onPressed: () async {
-                            if (_formKey.currentState!.validate()) {
-                              _formKey.currentState!.save();
-                              await controller.updateUser(
-                                  name: userName,
-                                  email: userEmail,
-                                  password: userPassword,
-                                  novaImagem: _novaImagem,
-                                  );
-                            }
-                          },
-                          color: Theme.of(context).colorScheme.primary,
-                          textColor: Colors.white,
-                          splashColor: Colors.blue[100],
-                          padding: EdgeInsets.all(15),
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(25.0)),
-                          child: const Text('Submit'),
-                        ),
+                        child: 
+                          ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              elevation: 4,
+                              primary: Theme.of(context).colorScheme.secondary,// background
+                              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20))
+                            ),
+                            onPressed: () async {
+                                        if (_formKey.currentState!.validate()) {
+                                          _formKey.currentState!.save();
+                                          await controller.updateUser(
+                                              name: userName,
+                                              email: userEmail,
+                                              password: userPassword,
+                                              novaImagem: _novaImagem,
+                                              );
+                                        }
+                                      },
+                            child: const Text('Submit'),
+                          ),
                       ),
                   ),
 

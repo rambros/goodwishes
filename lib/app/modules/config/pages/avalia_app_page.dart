@@ -24,7 +24,7 @@ class AvaliaAppPage extends StatelessWidget {
     var size = Size(MediaQuery.of(context).size.width, 200.0);
     return Scaffold(
         appBar: AppBar(
-          title: Text('Avalie o app MeditaBK'),
+          title: Text('Avalie o app GoodWishes'),
         ),
         body: Container(
           child: Column(
@@ -35,7 +35,7 @@ class AvaliaAppPage extends StatelessWidget {
               Container(
                 width: size.width,
                 height: MediaQuery.of(context).size.height * .12,
-                child: Image.asset('assets/images/logo_meditabk_2020.png',
+                child: Image.asset('assets/images/logo_goodwishes.png',
                       width: 220, height: 220),
               ),
               SizedBox(
@@ -44,50 +44,54 @@ class AvaliaAppPage extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(left: 20.0),
                 child: Text(
-                  'Avalie o app MeditaBK',
+                  'Avalie o app GoodWishes',
                   textAlign: TextAlign.center,
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 25,
-                      color: Theme.of(context).accentColor),
+                      color: Theme.of(context).colorScheme.secondary),
                 ),
               ),
               Padding(
                 padding: const EdgeInsets.all(12.0),
                 child: Text(
-                  'Está gostando do MeditaBK?\nTem sugestões para melhorias?\nAjude-nos a melhorar o app MeditaBK. Deixe sua avaliação e comentários na loja de apps.',
+                  'Está gostando do GoodWishes?\nTem sugestões para melhorias?\nAjude-nos a melhorar o app MeditaBK. Deixe sua avaliação e comentários na loja de apps.',
                   textAlign: TextAlign.center,
                 ),
               ),
               SizedBox(
                 height: 10,
               ),
-              RaisedButton(
-                color: Theme.of(context).accentColor,
-                textColor: Colors.white,
-                elevation: 4,
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  elevation: 4,
+                  primary: Theme.of(context).colorScheme.secondary,// background
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20))
+                ),
                 onPressed: () {
                   _requestReview();
-                },
+                }, 
                 child: Text('Avaliação aqui mesmo'.toUpperCase()),
               ),
               SizedBox(
                 height: 10,
               ),
-              RaisedButton(
-                color: Theme.of(context).accentColor,
-                textColor: Colors.white,
-                elevation: 4,
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  elevation: 4,
+                  primary: Theme.of(context).colorScheme.secondary,// background
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20))
+                ),
                 onPressed: () {
                   _openStoreListing();
-                },
-                child: Text('Avaliação na loja'.toUpperCase()),
+                }, 
+                child: Text('Faça uma avaliação na loja'.toUpperCase()),
               ),
               Expanded(child: Container()),
               ShareInvite(
                 size: size,
                 xOffset: 50,
-                color: Theme.of(context).accentColor,
+                color: Theme.of(context).colorScheme.secondary,
                 yOffset: 10,
               )
             ],
@@ -153,6 +157,7 @@ class _ShareInviteState extends State<ShareInvite>
           curve: Curves.easeInOut,
         ),
         builder: (context, child) => ClipPath(
+          clipper: WaveClipper(animationController.value, animList1),
           child: widget.color == null
               ? Image.asset(
                   'images/demo5bg.jpg',
@@ -165,7 +170,6 @@ class _ShareInviteState extends State<ShareInvite>
                   height: widget.size!.height,
                   color: widget.color,
                 ),
-          clipper: WaveClipper(animationController.value, animList1),
         ),
       ),
     );

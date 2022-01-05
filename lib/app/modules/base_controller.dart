@@ -6,8 +6,8 @@ import '/app/shared/services/authentication_service.dart';
 import '/app/shared/services/user_service.dart';
 import 'community/community_page.dart';
 import 'fundamentals/fundamentals_page.dart';
-import 'journey/step/page/step_list_page.dart';
-import 'journey/step/repository/step_firebase_controller.dart';
+import 'journeys/journey/page/journey_list_page.dart';
+import 'journeys/step/repository/step_firebase_controller.dart';
 
 part 'base_controller.g.dart';
 
@@ -20,7 +20,7 @@ abstract class _BaseControllerBase with Store {
 
   final List<Widget> _bodyViews = <Widget>[
     FundamentalsPage(),
-    StepListPage(),
+    JourneyListPage(),
     CommunityPage(),
   ];
 

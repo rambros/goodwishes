@@ -1,4 +1,4 @@
-// ignore_for_file: invalid_return_type_for_catch_error
+// ignore_for_file: invalid_return_type_for_catch_error, prefer_final_fields
 
 import 'dart:convert';
 import 'dart:io';
@@ -15,7 +15,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:sign_in_with_apple/sign_in_with_apple.dart';
 import 'package:flutter_login_facebook/flutter_login_facebook.dart';
-//import 'package:flutter_facebook_login/flutter_facebook_login.dart';
 
 import '/app/modules/autentica/model/apple_user.dart';
 import 'dialog_service.dart';
@@ -487,9 +486,10 @@ abstract class _authenticationServiceBase with Store {
 
   Future signInwithEmailPassword(userEmail, userPassword) async {
     try {
-      final _firebaseUser = (await _firebaseAuth.signInWithEmailAndPassword(
-              email: userEmail, password: userPassword))
-          .user!;
+      //final _firebaseUser = (await _firebaseAuth.signInWithEmailAndPassword(
+      //        email: userEmail, password: userPassword)).user!;
+      await _firebaseAuth.signInWithEmailAndPassword(
+              email: userEmail, password: userPassword);
       final currentUser = _firebaseAuth.currentUser!;
       _uid = currentUser.uid;
       setAuthUser(currentUser);

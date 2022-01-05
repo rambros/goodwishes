@@ -29,8 +29,8 @@ abstract class _AuthorEditControllerBase with Store {
 
   UserApp? _edittingAuthor;
 
-  Future editAuthor(
-      {required String? curriculum,
+  Future editAuthor({
+      required String? curriculum,
       String? contact,
       String? site,}) async {
     setBusy(true);
@@ -38,7 +38,7 @@ abstract class _AuthorEditControllerBase with Store {
     var result;
 
     // está editando Author
-    Map<String, dynamic> updateMap = {
+    var updateMap = {
       'curriculum': curriculum,
       'site': site,
       'contact': contact, 

@@ -16,11 +16,11 @@ class _SupportPageState extends State<SupportPage> {
   final InAppReview _inAppReview = InAppReview.instance;
   final String _appStoreId = '1524154748';
 
-  Future<void> _requestReview() async {
-    if (await _inAppReview.isAvailable()) {
-      await _inAppReview.requestReview();
-    }
-  }
+  // Future<void> _requestReview() async {
+  //   if (await _inAppReview.isAvailable()) {
+  //     await _inAppReview.requestReview();
+  //   }
+  // }
 
   Future<void> _openStoreListing() => _inAppReview.openStoreListing(appStoreId: _appStoreId);
 
@@ -70,57 +70,53 @@ class _SupportPageState extends State<SupportPage> {
                         '''Ajude-nos a melhorar o MeditaBK. \n\nE você pode fazer isto de várias formas:''',
                         style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500)),
                   ),
-                  // verticalSpace(24),
-                  // Center(
-                  //   child: Text(
-                  //     'Text2',
-                  //     style: TextStyle(
-                  //       fontSize: 16.0,
-                  //       //color: Colors.black,
-                  //     ),
-                  //   ),
-                  // ),
                   verticalSpace(28),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                      RaisedButton(
-                        color: Theme.of(context).colorScheme.secondary,
-                        textColor: Colors.white,
-                        elevation: 2,
+                      ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          elevation: 2,
+                          primary: Theme.of(context).colorScheme.secondary,// background
+                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20))
+                        ),
                         onPressed: () {
                           Modular.to.pushNamed('/feedback');
-                        },
+                        }, 
                         child: Text('Dê a sua opinião sobre o app'.toUpperCase()),
-                      ),
+                      )
                     ],
                   ),
                   verticalSpace(28),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                      RaisedButton(
-                        color: Theme.of(context).colorScheme.secondary,
-                        textColor: Colors.white,
-                        elevation: 2,
+                      ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          elevation: 2,
+                          primary: Theme.of(context).colorScheme.secondary,// background
+                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20))
+                        ),
                         onPressed: () {
                           _openStoreListing();
-                        },
+                        }, 
                         child: Text('Faça uma avaliação na loja'.toUpperCase()),
-                      ),
+                      )
                     ],
                   ),
                   verticalSpace(28),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                      RaisedButton(
-                        color: Theme.of(context).colorScheme.secondary,
-                        textColor: Colors.white,
-                        elevation: 2,
+                      ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          elevation: 2,
+                          primary: Theme.of(context).colorScheme.secondary,// background
+                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20))
+                        ),
                         onPressed: () {
                           Modular.to.pushNamed('/feature');
-                        },
+                        }, 
                         child: Text('Sugerir uma melhoria'.toUpperCase()),
                       ),
                     ],
@@ -129,13 +125,15 @@ class _SupportPageState extends State<SupportPage> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                      RaisedButton(
-                        color: Theme.of(context).colorScheme.secondary,
-                        textColor: Colors.white,
-                        elevation: 2,
+                      ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          elevation: 2,
+                          primary: Theme.of(context).colorScheme.secondary,// background
+                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20))
+                        ),
                         onPressed: () {
                           Modular.to.pushNamed('/donation');
-                        },
+                        }, 
                         child: Text('Faça uma contribuição'.toUpperCase()),
                       ),
                     ],
@@ -144,31 +142,24 @@ class _SupportPageState extends State<SupportPage> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                      RaisedButton(
-                        color: Theme.of(context).colorScheme.secondary,
-                        textColor: Colors.white,
-                        elevation: 2,
+                      ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          elevation: 2,
+                          primary: Theme.of(context).colorScheme.secondary,// background
+                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20))
+                        ),
                         onPressed: () {
-                          final RenderBox box = context.findRenderObject() as RenderBox;
+                          final box = context.findRenderObject() as RenderBox;
                           Share.share(
-                              'Oi, recentemente instalei este app de meditações da Brahma Kumaris. \nE ele é ótimo. Baixe uma cópia grátis aqui ${GlobalConfiguration().getString("dynamicLinkInvite")}',
+                              'Oi, recentemente instalei este app de meditações da Brahma Kumaris. \nE ele é ótimo. Baixe uma cópia grátis aqui ${GlobalConfiguration().getValue("dynamicLinkInvite")}',
                               subject: 'App MeditaBK',
                               sharePositionOrigin: box.localToGlobal(Offset.zero) & box.size);
-                        },
+                        }, 
                         child: Text('Divulgue para seus conhecidos'.toUpperCase()),
                       ),
                     ],
                   ),
                   verticalSpace(500),
-                  //Expanded(child: verticalSpace(16),),
-                  // Center(
-                  //   child: GestureDetector(
-                  //     onTap: () {
-                  //       controller.shareMensagem(mensagem);
-                  //     },
-                  //     child: Icon(Icons.share, size: 36.0),
-                  //   ),
-                  //),
                 ],
               ),
             ),

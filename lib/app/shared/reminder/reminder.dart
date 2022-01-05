@@ -29,7 +29,7 @@ class Reminder extends StatelessWidget {
                   //"Meditate",
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                      color: Theme.of(context).accentColor,
+                      color: Theme.of(context).colorScheme.secondary,
                       fontSize: 13.5,
                       fontWeight: FontWeight.w700,
                       letterSpacing: 1.1),
@@ -43,7 +43,7 @@ class Reminder extends StatelessWidget {
                   textAlign: TextAlign.center,
                   style: TextStyle(
                       color: _appSettings.isDarkTheme! 
-                      ? Theme.of(context).accentColor
+                      ? Theme.of(context).colorScheme.secondary
                       : Color(0xff2d386b),
                       fontSize: 30,
                       fontWeight: FontWeight.w700),

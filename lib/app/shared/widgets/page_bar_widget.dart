@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
-import '/app/shared/services/notification_service.dart';
 import '../../app_controller.dart';
 
 class PageBar extends StatefulWidget with PreferredSizeWidget {
@@ -20,7 +19,7 @@ class _PageBarState extends State<PageBar> {
   @override
   Widget build(BuildContext context) {
   final _appSettings = Modular.get<AppController>();
-  final _notificationService = Modular.get<NotificationService>();
+  //final _notificationService = Modular.get<NotificationService>();
   return AppBar(
     leading: IconButton(
         padding: EdgeInsets.only(left: 18, right: 18.0),
