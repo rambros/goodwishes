@@ -16,8 +16,8 @@ class Clock extends StatefulWidget {
   final TimeProducer getCurrentTime;
   final Duration updateDuration;
 
-  Clock(
-      {this.circleColor = const Color(0xfffe1ecf7),
+  Clock({
+      this.circleColor = const Color(0xfffe1ecf7),
       this.shadowColor = const Color(0xffd9e2ed),
       this.clockText = ClockText.arabic,
       this.getCurrentTime = getSystemTime,
@@ -41,7 +41,7 @@ class _Clock extends State<Clock> {
   void initState() {
     super.initState();
     dateTime = DateTime.now();
-    this._timer = Timer.periodic(widget.updateDuration, setTime);
+    _timer = Timer.periodic(widget.updateDuration, setTime);
   }
 
   void setTime(Timer timer) {

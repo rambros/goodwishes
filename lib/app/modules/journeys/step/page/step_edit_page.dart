@@ -4,7 +4,7 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
 
-import '../../journey/helper/helper.dart';
+import './../../helper/helper.dart';
 import '../controller/step_edit_controller.dart';
 import '/app/shared/services/dialog_service.dart';
 import '/app/shared/utils/shared_styles.dart';

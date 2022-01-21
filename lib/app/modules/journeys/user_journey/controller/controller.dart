@@ -1,0 +1,1 @@
+export './user_journey_details_controller.dart';

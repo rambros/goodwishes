@@ -29,6 +29,7 @@ import 'journeys/journey/repository/firebase_journey_repository.dart';
 import 'journeys/step/repository/step_firebase_controller.dart';
 import 'journeys/step/repository/step_firebase_repository.dart';
 import 'journeys/journey_module.dart';
+import 'journeys/user_journey/user_journey.dart';
 import 'notification/controller/notification_controller.dart';
 import 'notification/pages/notification_page.dart';
 import 'notification/repository/notification_firebase_repository.dart';
@@ -45,6 +46,7 @@ class BaseModule extends Module {
         Bind((i) => DeleteAccountController()),
         Bind((i) => JourneyListController()),
         Bind((i) => FirebaseJourneyRepository()),
+        Bind((i) => FirebaseUserJourneyRepository()),
 
         Bind((i) => DraftStepFirebaseRepository()),
         Bind((i) => DraftStepFirebaseController()),

@@ -57,11 +57,11 @@ class _JourneyAddPageState
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
                             verticalSpace(16),
-                            TitleField(),
+                            AddTitleField(),
                             verticalSpace(16),
-                            DescriptionField(),
+                            AddDescriptionField(),
                             verticalSpace(16),
-                            ImageField(controller: controller),
+                            AddImageField(controller: controller),
                             verticalSpace(8),
                             adjustImage(),
                           ],
@@ -167,8 +167,8 @@ class _JourneyAddPageState
   }
 }
 
-class ImageField extends StatelessWidget {
-  const ImageField({
+class AddImageField extends StatelessWidget {
+  const AddImageField({
     Key? key,
     required this.controller,
   }) : super(key: key);
@@ -202,8 +202,8 @@ class ImageField extends StatelessWidget {
   }
 }
 
-class DescriptionField extends StatelessWidget {
-  const DescriptionField({Key? key,}) : super(key: key);
+class AddDescriptionField extends StatelessWidget {
+  const AddDescriptionField({Key? key,}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -223,8 +223,8 @@ class DescriptionField extends StatelessWidget {
   }
 }
 
-class TitleField extends StatelessWidget {
-  const TitleField({Key? key,}) : super(key: key);
+class AddTitleField extends StatelessWidget {
+  const AddTitleField({Key? key,}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

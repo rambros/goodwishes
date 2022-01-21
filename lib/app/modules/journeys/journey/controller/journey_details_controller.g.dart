@@ -39,6 +39,15 @@ mixin _$JourneyDetailsController on _JourneyDetailsControllerBase, Store {
     });
   }
 
+  final _$startUserJourneyAsyncAction =
+      AsyncAction('_JourneyDetailsControllerBase.startUserJourney');
+
+  @override
+  Future<dynamic> startUserJourney(Journey journey) {
+    return _$startUserJourneyAsyncAction
+        .run(() => super.startUserJourney(journey));
+  }
+
   final _$_JourneyDetailsControllerBaseActionController =
       ActionController(name: '_JourneyDetailsControllerBase');
 

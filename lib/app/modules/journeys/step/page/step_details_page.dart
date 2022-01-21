@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:goodwishes/app/modules/journeys/audio_player/audio_player_page.dart';
-import 'package:goodwishes/app/modules/journeys/journey/helper/helper.dart';
 
+import './../../audio_player/audio_player_page.dart';
+import './../../audio_player/player_model.dart';
+import './../../helper/helper.dart';
 import '../controller/step_details_controller.dart';
-import '/app/modules/journeys/audio_player/player_model.dart';
 import '/app/shared/comment/comment.dart';
 import '/app/shared/utils/date_util.dart';
 import '/app/shared/utils/ui_utils.dart';

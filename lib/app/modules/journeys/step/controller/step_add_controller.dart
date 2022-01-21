@@ -3,8 +3,8 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:mobx/mobx.dart';
 
-import '/app/modules/journeys/model/models.dart';
-import '../../journey/helper/helper.dart';
+import './../../model/models.dart';
+import './../../helper/helper.dart';
 import '../../journey/repository/journey_repository.dart';
 import '/app/shared/services/cloud_storage_service.dart';
 import '/app/shared/services/dialog_service.dart';

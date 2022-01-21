@@ -23,11 +23,11 @@ class HourHandPainter extends CustomPainter {
     canvas.translate(radius, radius);
 
     //checks if hour is greater than 12 before calculating rotation
-    canvas.rotate(this.hours! >= 12
-        ? 2 * pi * ((this.hours! - 12) / 12 + (this.minutes! / 720))
-        : 2 * pi * ((this.hours! / 12) + (this.minutes! / 720)));
+    canvas.rotate(hours! >= 12
+        ? 2 * pi * ((hours! - 12) / 12 + (minutes! / 720))
+        : 2 * pi * ((hours! / 12) + (minutes! / 720)));
 
-    Path path = Path();
+    final path = Path();
     //hour hand stem
     path.moveTo(0.0, -radius * 0.5);
     path.lineTo(0.0, radius * 0.1);

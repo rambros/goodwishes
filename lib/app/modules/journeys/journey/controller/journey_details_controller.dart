@@ -1,9 +1,12 @@
+import 'package:dartz/dartz.dart';
+import 'package:goodwishes/app/modules/journeys/error/failures.dart';
 import 'package:mobx/mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 import '/app/modules/journeys/model/models.dart';
+import '/app/modules/journeys/helper/helper.dart';
+import '/app/modules/journeys/user_journey/repository/user_journey_repository.dart';
 import '../repository/journey_repository.dart';
-import '../../journey/helper/helper.dart';
 import '/app/shared/services/dialog_service.dart';
 import '/app/shared/services/user_service.dart';
 
@@ -16,6 +19,7 @@ abstract class _JourneyDetailsControllerBase with Store {
   final _userService = Modular.get<UserService>();
   final _dialogService = Modular.get<DialogService>();
   final _journeyRepository = Modular.get<JourneyRepository>();
+  final _userJourneyRepository = Modular.get<UserJourneyRepository>();
 
   late Journey _journey;
 
@@ -79,6 +83,58 @@ abstract class _JourneyDetailsControllerBase with Store {
   void showStepDetails(int index) {
     var args = JourneyStepArgs(journeyId: _journey.journeyId!, step: _steps[index]);
     Modular.to.pushNamed('/journey/step/details', arguments: args);
+  }
+
+  UserStep _userStepFromStep(StepModel step) {
+    return UserStep(
+      step: step,
+      status: 'closed',
+      dateStarted: null,
+      dateCompleted: null,
+    );
+  }
+
+  @action
+  Future startUserJourney(Journey journey) async {
+    setBusy(true);
+    
+    var _userJourneyResult = await _userJourneyRepository.addUserJourney(
+      UserJourney(
+        userId: _userService.uid!,
+        journeyId: journey.journeyId!,
+        title: journey.title,
+        description: journey.description,
+        imageFileName: journey.imageFileName,
+        imageUrl: journey.imageUrl,
+        dateStarted: DateTime.now(),
+        dateCompleted: null,
+        lastAccessDate: null,
+        stepsCompleted: 0,
+        stepsTotal: journey.stepsTotal,
+        userSteps: List<UserStep>.from(journey.steps!.map((x) => _userStepFromStep(x))),
+        status: 'ongoing',
+      )
+    );
+
+    setBusy(false);
+
+    await _userJourneyResult.fold(
+      (failureResult) async {
+        String? message;
+        if(failureResult is ServerFailure) {
+          message = failureResult.error;
+        }else {
+          message = 'Unexpected error';
+        };
+        await _dialogService.showDialog(
+          title: 'Was not possible to start this Journey',
+          description: message,
+        );
+      }, 
+      (userJourney) {
+        Modular.to.popAndPushNamed('/journey/user_journey/details', arguments: userJourney);
+      },
+      );
   }
 }
 

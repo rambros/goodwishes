@@ -45,7 +45,7 @@ class _JourneyDetailsPageState
                   : CircularProgressIndicator(),
               label: Text('Start Journey'),
               onPressed: () {
-                controller.addStep();
+                controller.startUserJourney(widget.journey!);
               },
           )
           : null,
@@ -57,9 +57,12 @@ class _JourneyDetailsPageState
               children: <Widget>[
                 ImageStack(journey: widget.journey!),
                 verticalSpace(8),
-                TitleField(widget: widget),
+                EditTitleField(widget: widget),
                 verticalSpace(8),
-                DescriptionField(widget: widget),
+                EditDescriptionField(widget: widget),
+                if (userRole == 'Admin') 
+                  ...[  verticalSpace(8), 
+                      _addStepButton()],
                 verticalSpace(8),
                 StepsList(controller),
               ],
@@ -67,10 +70,32 @@ class _JourneyDetailsPageState
           ),
         ));
   }
+
+Widget _addStepButton() {
+  return  Center(
+    child: ElevatedButton(
+        style: ElevatedButton.styleFrom(
+          elevation: 4,
+          primary: Theme.of(context).colorScheme.secondary,// background
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20))
+        ),
+        onPressed: controller.addStep,
+        child: Text(
+            'Add Step',
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontWeight: FontWeight.w500,
+              fontSize: 18,
+              color: Theme.of(context).colorScheme.onSecondary
+            ),
+          ),
+      ),
+  );
+}  
 }
 
-class TitleField extends StatelessWidget {
-  const TitleField({Key? key,required this.widget,}) : super(key: key);
+class EditTitleField extends StatelessWidget {
+  const EditTitleField({Key? key,required this.widget,}) : super(key: key);
 
   final JourneyDetailsPage widget;
 
@@ -86,8 +111,8 @@ class TitleField extends StatelessWidget {
   }
 }
 
-class DescriptionField extends StatelessWidget {
-  const DescriptionField({Key? key,required this.widget,}) : super(key: key);
+class EditDescriptionField extends StatelessWidget {
+  const EditDescriptionField({Key? key,required this.widget,}) : super(key: key);
 
   final JourneyDetailsPage widget;
 
@@ -173,39 +198,6 @@ class ImageStack extends StatelessWidget {
                   )
                 : Container(),
           ),
-          Center(
-            child: Opacity(
-              opacity: 0.7,
-              child: Container(
-                  //padding: EdgeInsets.all(0),
-                  decoration: BoxDecoration(
-                    color: Colors.black45,
-                    shape: BoxShape.circle,
-                    //borderRadius: BorderRadius.circular(100),
-                  ),
-                  child: 
-                    ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        elevation: 4,
-                        primary: Theme.of(context).colorScheme.secondary,// background
-                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20))
-                      ),
-                      onPressed: () {
-                        //_requestReview();
-                      }, 
-                      child: Text(
-                          'Start Journey'.toUpperCase(),
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            fontWeight: FontWeight.w500,
-                            fontSize: 18,
-                            color: Theme.of(context).colorScheme.onSecondary
-                          ),
-                        ),
-                    ),
-              ),
-            ),
-          )
       ]),
     );
   }

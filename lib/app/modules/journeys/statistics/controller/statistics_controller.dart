@@ -28,7 +28,6 @@ class DailyLog {
     this.sessions,
   });
 
-  @override
   int? compareTo(other) {
     if (day == null || other == null) {
       return null;

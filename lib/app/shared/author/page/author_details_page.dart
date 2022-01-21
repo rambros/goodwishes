@@ -1,10 +1,9 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '/app/shared/user/user_app_model.dart';
 import '/app/shared/utils/ui_utils.dart';
 
-const String dob = "dob";
+const String dob = 'dob';
 
 class AuthorDetailsPage extends StatefulWidget {
   final UserApp? author;

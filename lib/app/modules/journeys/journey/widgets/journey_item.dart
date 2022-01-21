@@ -52,7 +52,7 @@ class JourneyItem extends StatelessWidget {
                       child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
-                            ImageStack(journey: journey!),
+                            JourneyItemImageStack(journey: journey!),
                             verticalSpace(8),
                             _getTitle(journey!.title),
                             verticalSpace(8),
@@ -127,8 +127,8 @@ class JourneyItem extends StatelessWidget {
   }
 }
 
-class ImageStack extends StatelessWidget {
-  const ImageStack({
+class JourneyItemImageStack extends StatelessWidget {
+  const JourneyItemImageStack({
     Key? key,
     required this.journey,
   }) : super(key: key);
@@ -172,7 +172,7 @@ class ImageStack extends StatelessWidget {
                     borderRadius: BorderRadius.circular(16),
                   ),
                   child: Text(
-                    'KNOW MORE',
+                    'Know More',
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontWeight: FontWeight.w500,

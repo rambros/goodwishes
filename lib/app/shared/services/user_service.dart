@@ -12,8 +12,6 @@ class UserService = _UserServiceBase with _$UserService;
 abstract class _UserServiceBase with Store {
 
   final _userRepository = Modular.get<IUserRepository>();
-  //final _userRepository = Modular.get<UserFirebaseRepository>();
-
 
  // @observable
   UserApp? _currentUser;

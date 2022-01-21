@@ -8,6 +8,7 @@ class DialogManager extends StatefulWidget {
   final Widget? child;
   DialogManager({Key? key, this.child}) : super(key: key);
 
+  @override
   _DialogManagerState createState() => _DialogManagerState();
 }
 
@@ -40,16 +41,12 @@ class _DialogManagerState extends State<DialogManager> {
     switch (request.type) {
       case 'dialog':
           return _alertDialog(request); 
-          break;
       case 'input_password': 
         return _passwordDialog(request);
-        break;
       case 'confirmation_dialog':
           return _confirmationDialog(request); 
-          break; 
       case 'timer_duration':
           return _inputDuration(request); 
-          break;     
       default:
          return _alertDialog(request);
     }
